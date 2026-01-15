@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-50 pt-20 pb-10 border-t border-slate-200">
+    <footer className="bg-slate-50 pt-10 pb-6 border-t border-slate-200">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-brand-blue rounded flex items-center justify-center">
-                <span className="text-white font-bold">E</span>
-              </div>
-              <span className="font-heading font-bold text-xl tracking-tight text-slate-900">ERREKA</span>
+            <div className="mb-6">
+              <img
+                src="/logo.png"
+                alt="ERREKA Logo"
+                className="h-20 md:h-28 w-auto object-contain"
+              />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Leading the way in automatic door technology and architectural solutions worldwide.

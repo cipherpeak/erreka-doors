@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,33 +15,63 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const lastScrollY = useRef(0);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Handle transparent/white background logic
+      setIsScrolled(currentScrollY > 20);
+
+      // Handle visibility logic (Smart Header)
+      // Show if scrolling UP or at the very top
+      // Hide if scrolling DOWN and past the threshold
+      if (currentScrollY < lastScrollY.current || currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        setIsVisible(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+
+      // Detect stop scrolling
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+
+      scrollTimeout.current = setTimeout(() => {
+        setIsVisible(true);
+      }, 150);
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+    };
   }, []);
 
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-0',
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent',
+        !isVisible && '-translate-y-full'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xl">E</span>
-          </div>
-          <span className={cn(
-            "font-heading font-bold text-xl tracking-tight transition-colors",
-            isScrolled ? "text-slate-900" : "text-white"
-          )}>
-            ERREKA
-          </span>
+          <img
+            src="/logo.png"
+            alt="ERREKA Logo"
+            className="h-20 md:h-28 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
