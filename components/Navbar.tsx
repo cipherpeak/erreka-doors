@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -10,15 +9,13 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Products', href: '/services' },
+  { name: 'Products', href: '/products' },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const [isVisible, setIsVisible] = useState(true);
 
   const lastScrollY = useRef(0);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -31,6 +28,8 @@ export default function Navbar() {
       setIsScrolled(currentScrollY > 20);
 
       // Handle visibility logic (Smart Header)
+      // Show if scrolling UP or at the very top
+      // Hide if scrolling DOWN and past the threshold
       if (currentScrollY < lastScrollY.current || currentScrollY < 50) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
@@ -39,6 +38,7 @@ export default function Navbar() {
 
       lastScrollY.current = currentScrollY;
 
+      // Detect stop scrolling
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }
@@ -57,28 +57,21 @@ export default function Navbar() {
     };
   }, []);
 
-  // Determine if we should use light text (white) or dark text (slate)
-  const useLightText = isHomePage && !isScrolled;
-
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent',
-        !isVisible && !isMobileMenuOpen && '-translate-y-full'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-0',
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent',
+        !isVisible && '-translate-y-full'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xl">E</span>
-          </div>
-          <span className={cn(
-            "font-heading font-bold text-xl tracking-tight transition-colors",
-            isScrolled ? "text-slate-900" : "text-white"
-          )}>
-            ERREKA
-          </span>
+          <img
+            src="/logo.png"
+            alt="ERREKA Logo"
+            className="h-20 md:h-28 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -89,7 +82,7 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-brand-blue relative group",
-                useLightText ? "text-white/90" : "text-slate-600"
+                isScrolled ? "text-slate-600" : "text-white/90"
               )}
             >
               {link.name}
@@ -111,9 +104,9 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={useLightText ? "text-white" : "text-slate-900"} />
+            <X className={isScrolled ? "text-slate-900" : "text-white"} />
           ) : (
-            <Menu className={useLightText ? "text-white" : "text-slate-900"} />
+            <Menu className={isScrolled ? "text-slate-900" : "text-white"} />
           )}
         </button>
       </div>
