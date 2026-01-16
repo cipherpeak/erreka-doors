@@ -10,7 +10,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services' },
-  { name: 'Products', href: '/products' },
+  { name: 'Products', href: '/services' },
 ];
 
 export default function Navbar() {
@@ -70,11 +70,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <img 
-            src="/logo.png" 
-            alt="ERREKA Logo" 
-            className="h-16 md:h-20 w-auto transition-all"
-          />
+          <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-xl">E</span>
+          </div>
+          <span className={cn(
+            "font-heading font-bold text-xl tracking-tight transition-colors",
+            isScrolled ? "text-slate-900" : "text-white"
+          )}>
+            ERREKA
+          </span>
         </Link>
 
         {/* Desktop Nav */}
