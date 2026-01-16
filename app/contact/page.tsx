@@ -64,10 +64,10 @@ export default function ContactPage() {
               
               <div className="space-y-8">
                 {[
-                  { icon: MapPin, title: "Our Headquarters", content: "123 Engineering Way, Tech City, TC 54321" },
-                  { icon: Phone, title: "Phone Support", content: "+1 (555) 123-4567" },
-                  { icon: Mail, title: "Email Us", content: "info@errekadoors.com" },
-                  { icon: Clock, title: "Business Hours", content: "Mon - Fri: 8:00 AM - 6:00 PM" },
+                  { icon: Phone, title: "Phone Support", content: "+971 4 285 2806 / +971 50 223 9301" },
+                  { icon: Mail, title: "Email Us", content: "sales@errekadoors.com" },
+                  { icon: Globe, title: "Website", content: "www.errekadoors.com" },
+                  { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 6:00 PM" },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
                     <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue transition-colors duration-300">
@@ -84,14 +84,15 @@ export default function ContactPage() {
               <div className="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <Globe className="w-5 h-5 text-brand-blue" /> Global Presence
+                  Why Contact ERREKA?
                 </h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                  With offices and partners in over 50 countries, we provide local support and expertise wherever your project is located.
-                </p>
-                <button className="text-brand-blue font-bold text-sm hover:underline">
-                  Find a local distributor →
-                </button>
+                <ul className="space-y-3 text-slate-400 text-sm">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Expert technical consultation</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Reliable after-sales service</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Long-term maintenance solutions</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Trusted by leading UAE organizations</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Proven performance in high-traffic environments</li>
+                </ul>
               </div>
             </motion.div>
 

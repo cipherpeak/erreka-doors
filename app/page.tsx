@@ -43,13 +43,15 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">About Erreka</h2>
+              <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Who We Are</h2>
               <h3 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">
-                Excellence in Every Opening
+                Reliable, Innovative, and Future-Ready
               </h3>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                ERREKA Technical Services LLC was established with a singular focus: to deliver reliable, innovative, and future-ready automatic door solutions supported by expert installation and long-term service excellence.
+              </p>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                We specialize in the design, manufacture, and installation of automatic door systems. 
-                Our solutions are tailored to meet the highest standards of safety, accessibility, and aesthetic appeal.
+                Automatic entrance systems are more than doors — they are the first point of interaction between people and buildings. At ERREKA, we ensure that every entrance delivers performance, safety, and trust, day after day.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
@@ -85,10 +87,10 @@ export default function Home() {
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {[
-                { icon: Shield, title: "Certified Safety", desc: "Meeting international EN standards for all installations." },
-                { icon: Zap, title: "Smart Tech", desc: "IoT integrated systems for remote monitoring and control." },
-                { icon: Globe, title: "Global Reach", desc: "Presence in over 50 countries with local support." },
-                { icon: Award, title: "Premium Quality", desc: "High-grade materials ensuring long-term durability." },
+                { icon: Shield, title: "Safety First", desc: "Compliance with international quality and safety standards." },
+                { icon: Zap, title: "Smart Access", desc: "Digitally connected building systems and smart access." },
+                { icon: Globe, title: "UAE Wide", desc: "Trusted by major institutions and brands across the UAE." },
+                { icon: Award, title: "Service Excellence", desc: "Long-term partnerships built on technical competence." },
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
@@ -115,10 +117,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Our Services</h2>
-            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-6">Comprehensive Solutions</h3>
+            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Core Capabilities</h2>
+            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-6">Complete Entrance Solutions</h3>
             <p className="text-slate-400 text-lg">
-              From initial design to long-term maintenance, we provide end-to-end support for your architectural projects.
+              From design and system consultation to professional installation and full maintenance contracts.
             </p>
           </motion.div>
 
@@ -132,17 +134,17 @@ export default function Home() {
             {[
               { 
                 title: "Installation", 
-                desc: "Professional setup by certified engineers ensuring perfect alignment and functionality.",
+                desc: "Professional installation of premium global brands tailored to your requirements.",
                 img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800"
               },
               { 
-                title: "Maintenance", 
-                desc: "Preventative care and 24/7 emergency support to keep your access points running smoothly.",
+                title: "Maintenance (AMC)", 
+                desc: "Preventive & corrective maintenance with full maintenance contracts for predictable costs.",
                 img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
               },
               { 
-                title: "Custom Design", 
-                desc: "Bespoke architectural solutions tailored to your building's unique aesthetic and flow.",
+                title: "Modernization", 
+                desc: "System upgrades and technology modernization to enhance performance and safety.",
                 img: "https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800"
               },
             ].map((service, i) => (
@@ -172,6 +174,42 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Trusted By Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Trusted by Leading Organizations</h3>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
+            </p>
+          </div>
+          
+          <div className="relative flex overflow-x-hidden">
+            <motion.div 
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                ease: "linear", 
+                duration: 30, 
+                repeat: Infinity 
+              }}
+              className="flex items-center gap-12 whitespace-nowrap py-4"
+            >
+              {[
+                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets',
+                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets'
+              ].map((client, i) => (
+                <div 
+                  key={i} 
+                  className="text-center font-bold text-slate-400 text-sm uppercase tracking-widest px-8 opacity-60 grayscale hover:grayscale-0 hover:text-brand-blue transition-all cursor-default"
+                >
+                  {client}
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 

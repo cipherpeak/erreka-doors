@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,10 +15,6 @@ const navLinks = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const lastScrollY = useRef(0);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,21 +53,28 @@ export default function Navbar() {
     };
   }, []);
 
+  // Determine if we should use light text (white) or dark text (slate)
+  // Light text is only used on the home page when not scrolled
+  const useLightText = isHomePage && !isScrolled;
+
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-0',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent',
-        !isVisible && '-translate-y-full'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4',
+        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <img
-            src="/logo.png"
-            alt="ERREKA Logo"
-            className="h-20 md:h-28 w-auto object-contain"
-          />
+          <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-xl">E</span>
+          </div>
+          <span className={cn(
+            "font-heading font-bold text-xl tracking-tight transition-colors",
+            isScrolled ? "text-slate-900" : "text-white"
+          )}>
+            ERREKA
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -82,7 +85,7 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-brand-blue relative group",
-                isScrolled ? "text-slate-600" : "text-white/90"
+                useLightText ? "text-white/90" : "text-slate-600"
               )}
             >
               {link.name}
@@ -104,9 +107,9 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-slate-900" : "text-white"} />
+            <X className={useLightText ? "text-white" : "text-slate-900"} />
           ) : (
-            <Menu className={isScrolled ? "text-slate-900" : "text-white"} />
+            <Menu className={useLightText ? "text-white" : "text-slate-900"} />
           )}
         </button>
       </div>

@@ -19,26 +19,24 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-brand-blue rounded-full animate-pulse" />
-            Global Leaders in Access Solutions
+            UAE Specialists in Door Automation
           </div>
           
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-[1.1] mb-6">
-            Engineering the <span className="text-brand-blue">Future</span> of Automatic Access
+            Automatic Entrance <span className="text-brand-blue">Solutions</span> for Modern Buildings
           </h1>
           
           <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
-            Premium automatic doors and architectural solutions designed for modern infrastructure. 
-            Combining safety, efficiency, and elegant design for over 50 years.
+            ERREKA Technical Services LLC is a UAE-based specialist in automatic entrance systems, smart access solutions, and door automation technologies.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <button className="w-full sm:w-auto bg-brand-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-dark transition-all flex items-center justify-center gap-2 group">
-              Explore Solutions
+              Request a Consultation
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2">
-              <Play className="w-5 h-5 fill-white" />
-              Watch Process
+              Get a Maintenance Quote
             </button>
           </div>
         </div>

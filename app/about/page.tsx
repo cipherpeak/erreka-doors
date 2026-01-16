@@ -37,12 +37,12 @@ export default function AboutPage() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-4xl"
           >
-            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">About Erreka</h1>
+            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">About ERREKA Technical Services LLC</h1>
             <h2 className="text-5xl md:text-7xl font-heading font-bold text-slate-900 mb-8 leading-tight">
-              Pioneering the Future of <span className="text-brand-blue">Access Control</span>
+              Specialized <span className="text-brand-blue">Access Solutions</span> in the UAE
             </h2>
-            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
-              With over five decades of engineering excellence, Erreka has established itself as a global leader in automatic door systems and architectural solutions.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
+              Headquartered in the United Arab Emirates, ERREKA was founded to address the growing demand for high-quality automated access systems supported by dependable service and long-term maintenance expertise.
             </p>
           </motion.div>
         </div>
@@ -80,17 +80,20 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-heading font-bold text-slate-900 mb-6">Our Story</h3>
+              <h3 className="text-3xl font-heading font-bold text-slate-900 mb-6">Expertise That Goes Beyond Installation</h3>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  Founded in the heart of industrial innovation, Erreka began with a simple vision: to make buildings more accessible and efficient through advanced engineering.
+                  Automatic doors play a critical role in modern buildings by controlling access, optimizing people flow, enhancing security, and improving user convenience.
                 </p>
                 <p>
-                  Over the years, we have evolved from a local manufacturer into an international powerhouse, part of the Mondragon Corporation. Our journey is defined by a relentless pursuit of quality and a commitment to solving complex architectural challenges.
+                  ERREKA brings together advanced technology, global brands, and local technical expertise to deliver solutions that perform reliably throughout their lifecycle. Our work does not end with installation; we believe that well-maintained systems are safer, last longer, and deliver better returns on investment.
                 </p>
-                <p>
-                  Today, our systems are installed in some of the world's most iconic buildings, providing seamless access to millions of people every day.
-                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2 font-semibold text-slate-900"><div className="w-1.5 h-1.5 bg-brand-blue rounded-full" /> Lifecycle planning</li>
+                  <li className="flex items-center gap-2 font-semibold text-slate-900"><div className="w-1.5 h-1.5 bg-brand-blue rounded-full" /> Preventive maintenance strategies</li>
+                  <li className="flex items-center gap-2 font-semibold text-slate-900"><div className="w-1.5 h-1.5 bg-brand-blue rounded-full" /> System performance optimization</li>
+                  <li className="flex items-center gap-2 font-semibold text-slate-900"><div className="w-1.5 h-1.5 bg-brand-blue rounded-full" /> Cost-efficient long-term operation</li>
+                </ul>
               </div>
             </motion.div>
           </div>
@@ -117,7 +120,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-heading font-bold mb-6">Our Mission</h3>
               <p className="text-slate-400 text-lg leading-relaxed">
-                To provide innovative and reliable access solutions that enhance the safety, accessibility, and aesthetic value of modern architectural spaces worldwide.
+                To create secure, efficient, and future-ready access solutions through continuous innovation, precision installation, and dependable service. Day by day. Installation by installation. Innovation by innovation.
               </p>
             </motion.div>
 
@@ -131,7 +134,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-3xl font-heading font-bold mb-6">Our Vision</h3>
               <p className="text-slate-400 text-lg leading-relaxed">
-                To be the global benchmark in automatic door technology, recognized for our engineering excellence, sustainable practices, and customer-centric approach.
+                To be a trusted leader in automatic entrance and building access solutions in the UAE by delivering systems that people rely on every day — systems that inspire confidence, safety, and seamless movement.
               </p>
             </motion.div>
           </motion.div>
@@ -147,7 +150,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Our Values</h2>
+            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">What We Stand For</h2>
             <h3 className="text-4xl font-heading font-bold text-slate-900 mb-6">The Pillars of Our Excellence</h3>
           </motion.div>
 
@@ -156,13 +159,14 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
           >
             {[
-              { icon: ShieldCheck, title: "Integrity", desc: "We uphold the highest standards of ethics and transparency in all our dealings." },
-              { icon: Lightbulb, title: "Innovation", desc: "Constantly pushing boundaries to develop smarter, more efficient technologies." },
-              { icon: Users, title: "Collaboration", desc: "Working closely with architects and partners to achieve shared success." },
-              { icon: Globe, title: "Sustainability", desc: "Committed to eco-friendly manufacturing and energy-efficient products." },
+              { icon: ShieldCheck, title: "Reliability", desc: "Systems that perform consistently in high-traffic environments." },
+              { icon: ShieldCheck, title: "Safety", desc: "Compliance with international quality and safety standards." },
+              { icon: Lightbulb, title: "Efficiency", desc: "Optimized people flow and operational convenience." },
+              { icon: Lightbulb, title: "Innovation", desc: "Smart access and digitally connected building systems." },
+              { icon: Users, title: "Trust", desc: "Long-term partnerships built on service excellence." },
             ].map((value, i) => (
               <motion.div 
                 key={i}

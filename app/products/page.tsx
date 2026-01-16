@@ -1,267 +1,265 @@
 'use client';
 
-import { useState } from 'react';
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Maximize2, Info, ArrowRight, Filter } from "lucide-react";
+import { Shield, Zap, Globe, Award, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-const categories = ['All', 'Sliding Doors', 'Swing Doors', 'Revolving Doors', 'Industrial'];
-
-const products = [
-  {
-    id: 1,
-    name: 'ERTAIN Sliding Door',
-    category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
-    description: 'The ERTAIN sliding door is our most versatile solution, designed for high-traffic environments where reliability and speed are paramount.',
-    specs: ['Opening speed: up to 1.0 m/s', 'Max weight: 150kg per leaf', 'IoT Ready', 'Emergency breakout system'],
-    features: ['Ultra-quiet operation', 'Slim profile design', 'Advanced safety sensors']
-  },
-  {
-    id: 2,
-    name: 'GLOBAL Swing Operator',
-    category: 'Swing Doors',
-    image: 'https://images.unsplash.com/photo-1517646288024-aaee00975160?auto=format&fit=crop&q=80&w=800',
-    description: 'A powerful and compact operator for automatic swing doors, suitable for both new installations and retrofitting existing manual doors.',
-    specs: ['Max leaf width: 1400mm', 'Max leaf weight: 250kg', 'Push/Pull arms available', 'Low energy mode'],
-    features: ['Wind load compensation', 'Fire door certified', 'Easy configuration via app']
-  },
-  {
-    id: 3,
-    name: 'KRYSTAL Revolving Door',
-    category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800',
-    description: 'The KRYSTAL series offers an elegant all-glass design that maximizes natural light while providing superior climate control for building entrances.',
-    specs: ['Diameter: 1800mm - 3600mm', '3 or 4 leaf configurations', 'Manual or Automatic', 'Night shield option'],
-    features: ['Frameless glass design', 'Energy saving climate seal', 'Integrated LED lighting']
-  },
-  {
-    id: 4,
-    name: 'CLEAN Sliding Door',
-    category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
-    description: 'Specifically designed for healthcare and laboratory environments, providing hermetic sealing and easy-to-clean surfaces.',
-    specs: ['Hermetic seal class 4', 'Lead shielding available', 'Touchless activation', 'Antibacterial finish'],
-    features: ['Air-tight performance', 'Flush glazing', 'Silent operation']
-  },
-  {
-    id: 5,
-    name: 'HEAVY Industrial Door',
-    category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    description: 'Robust high-speed doors for industrial warehouses and logistics centers, designed for intensive use and durability.',
-    specs: ['Opening speed: 2.5 m/s', 'Wind resistance: Class 3', 'Self-repairing curtain', 'Safety light curtain'],
-    features: ['High-cycle durability', 'Energy loss reduction', 'Impact resistant']
-  },
-  {
-    id: 6,
-    name: 'EVO Swing Door',
-    category: 'Swing Doors',
-    image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
-    description: 'The EVO operator combines sleek aesthetics with powerful performance, ideal for modern office interiors and retail spaces.',
-    specs: ['Height: only 70mm', 'Silent brushless motor', 'Battery backup included', 'Adjustable closing force'],
-    features: ['Minimalist design', 'Smooth motion control', 'Long service life']
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1
+    }
   }
-];
+};
 
-export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+  }
+};
 
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
-
+export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen">
       <Navbar />
-      
-      {/* Intro Section */}
-      <section className="pt-32 pb-16 bg-slate-50">
+      <Hero />
+
+      {/* Company Overview / Stats */}
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Our Products</h1>
-            <h2 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6">
-              Precision <span className="text-brand-blue">Engineering</span> for Every Entrance
-            </h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              Explore our range of high-performance automatic doors and industrial solutions, built to international standards.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Filter & Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-6">
-          {/* Category Filter */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap items-center gap-4 mb-12"
-          >
-            <div className="flex items-center gap-2 text-slate-400 mr-4">
-              <Filter className="w-4 h-4" />
-              <span className="text-sm font-bold uppercase tracking-wider">Filter:</span>
-            </div>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`
-                  px-6 py-2.5 rounded-full text-sm font-bold transition-all
-                  ${activeCategory === cat 
-                    ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/20' 
-                    : 'bg-white text-slate-500 hover:bg-slate-100 border border-slate-200'}
-                `}
-              >
-                {cat}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Product Grid */}
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <AnimatePresence mode='popLayout'>
-              {filteredProducts.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  layout
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="group cursor-pointer"
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  <div className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500">
-                    <div className="aspect-[4/3] overflow-hidden relative">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl">
-                          <Maximize2 className="w-5 h-5 text-brand-blue" />
-                        </div>
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-brand-blue">
-                          {product.category}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-8">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-blue transition-colors">{product.name}</h3>
-                      <p className="text-slate-500 text-sm line-clamp-2 mb-6">{product.description}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-brand-blue font-bold text-sm flex items-center gap-2">
-                          View Details <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Product Detail Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProduct(null)}
-              className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"
-            />
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-white w-full max-w-5xl rounded-[2.5rem] overflow-hidden relative z-10 shadow-2xl flex flex-col lg:flex-row max-h-[90vh]"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <button 
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-6 right-6 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center hover:bg-slate-200 transition-colors z-20"
-              >
-                <X className="w-5 h-5 text-slate-600" />
-              </button>
-
-              <div className="lg:w-1/2 h-64 lg:h-auto relative">
-                <img 
-                  src={selectedProduct.image} 
-                  alt={selectedProduct.name} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="lg:w-1/2 p-8 md:p-12 overflow-y-auto">
-                <span className="text-brand-blue font-bold text-xs uppercase tracking-widest mb-4 block">
-                  {selectedProduct.category}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-6">{selectedProduct.name}</h2>
-                <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                  {selectedProduct.description}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                      <Info className="w-4 h-4 text-brand-blue" /> Technical Specs
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedProduct.specs.map((spec, i) => (
-                        <li key={i} className="text-slate-500 text-sm flex items-center gap-2">
-                          <div className="w-1 h-1 bg-brand-blue rounded-full" /> {spec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                      <Info className="w-4 h-4 text-brand-blue" /> Key Features
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedProduct.features.map((feature, i) => (
-                        <li key={i} className="text-slate-500 text-sm flex items-center gap-2">
-                          <div className="w-1 h-1 bg-brand-blue rounded-full" /> {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Who We Are</h2>
+              <h3 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6 leading-tight">
+                Reliable, Innovative, and Future-Ready
+              </h3>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                ERREKA Technical Services LLC was established with a singular focus: to deliver reliable, innovative, and future-ready automatic door solutions supported by expert installation and long-term service excellence.
+              </p>
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                Automatic entrance systems are more than doors — they are the first point of interaction between people and buildings. At ERREKA, we ensure that every entrance delivers performance, safety, and trust, day after day.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-4xl font-bold text-brand-blue mb-1"
+                  >
+                    50+
+                  </motion.div>
+                  <div className="text-slate-500 font-medium">Years Experience</div>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-brand-blue text-white px-8 py-4 rounded-full font-bold hover:bg-brand-dark transition-all flex-1">
-                    Request Quote
-                  </button>
-                  <button className="bg-slate-100 text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition-all flex-1">
-                    Download Datasheet
-                  </button>
+                <div>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="text-4xl font-bold text-brand-blue mb-1"
+                  >
+                    100+
+                  </motion.div>
+                  <div className="text-slate-500 font-medium">Global Partners</div>
                 </div>
               </div>
             </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              {[
+                { icon: Shield, title: "Safety First", desc: "Compliance with international quality and safety standards." },
+                { icon: Zap, title: "Smart Access", desc: "Digitally connected building systems and smart access." },
+                { icon: Globe, title: "UAE Wide", desc: "Trusted by major institutions and brands across the UAE." },
+                { icon: Award, title: "Service Excellence", desc: "Long-term partnerships built on technical competence." },
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  variants={itemVariants}
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                  className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all group"
+                >
+                  <item.icon className="w-10 h-10 text-brand-blue mb-4 group-hover:scale-110 transition-transform" />
+                  <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Snapshot */}
+      <section className="py-24 bg-slate-900 text-white">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <h2 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Core Capabilities</h2>
+            <h3 className="text-4xl md:text-5xl font-heading font-bold mb-6">Complete Entrance Solutions</h3>
+            <p className="text-slate-400 text-lg">
+              From design and system consultation to professional installation and full maintenance contracts.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {[
+              { 
+                title: "Installation", 
+                desc: "Professional installation of premium global brands tailored to your requirements.",
+                img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800"
+              },
+              { 
+                title: "Maintenance (AMC)", 
+                desc: "Preventive & corrective maintenance with full maintenance contracts for predictable costs.",
+                img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+              },
+              { 
+                title: "Modernization", 
+                desc: "System upgrades and technology modernization to enhance performance and safety.",
+                img: "https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800"
+              },
+            ].map((service, i) => (
+              <motion.div 
+                key={i} 
+                variants={itemVariants}
+                className="group relative overflow-hidden rounded-3xl aspect-[4/5]"
+              >
+                <motion.img 
+                  src={service.img} 
+                  alt={service.title} 
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.7 }}
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <h4 className="text-2xl font-bold mb-2">{service.title}</h4>
+                  <p className="text-slate-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">{service.desc}</p>
+                  <motion.button 
+                    whileHover={{ x: 5 }}
+                    className="text-brand-blue font-bold flex items-center gap-2"
+                  >
+                    Learn More <ChevronRight className="w-4 h-4" />
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Trusted By Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Trusted by Leading Organizations</h3>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
+            </p>
+          </div>
+          
+          <div className="relative flex overflow-x-hidden">
+            <motion.div 
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                ease: "linear", 
+                duration: 30, 
+                repeat: Infinity 
+              }}
+              className="flex items-center gap-12 whitespace-nowrap py-4"
+            >
+              {[
+                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets',
+                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets'
+              ].map((client, i) => (
+                <div 
+                  key={i} 
+                  className="text-center font-bold text-slate-400 text-sm uppercase tracking-widest px-8 opacity-60 grayscale hover:grayscale-0 hover:text-brand-blue transition-all cursor-default"
+                >
+                  {client}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-brand-blue relative overflow-hidden">
+        <motion.div 
+          initial={{ x: "100%" }}
+          whileInView={{ x: "50%" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12" 
+        />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-white max-w-2xl"
+            >
+              <h3 className="text-4xl md:text-5xl font-heading font-bold mb-6">Ready to upgrade your building's access?</h3>
+              <p className="text-white/80 text-lg">
+                Consult with our experts today for a customized solution that fits your architectural needs.
+              </p>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all"
+              >
+                Get a Quote
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all"
+              >
+                Contact Sales
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <Footer />
     </main>
   );

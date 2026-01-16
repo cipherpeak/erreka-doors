@@ -9,11 +9,11 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="mb-6">
-              <img
-                src="/logo.png"
-                alt="ERREKA Logo"
-                className="h-20 md:h-28 w-auto object-contain"
+            <div className="flex items-center mb-6">
+              <img 
+                src="/logo.png" 
+                alt="ERREKA Logo" 
+                className="h-16 md:h-20 w-auto"
               />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
@@ -41,14 +41,15 @@ export default function Footer() {
           <div>
             <h5 className="font-bold text-slate-900 mb-6">Contact</h5>
             <ul className="space-y-4 text-slate-500 text-sm">
-              <li>info@errekadoors.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>123 Engineering Way, Tech City</li>
+              <li>sales@errekadoors.com</li>
+              <li>+971 4 285 2806</li>
+              <li>+971 50 223 9301</li>
+              <li>Dubai, United Arab Emirates</li>
             </ul>
           </div>
         </div>
         <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-xs">© 2024 Erreka Doors. All rights reserved.</p>
+          <p className="text-slate-400 text-xs">© 2026 Erreka Doors. All rights reserved. Powered by CipherPeak Private Limited</p>
           <div className="flex gap-6 text-slate-400 text-xs">
             <Link href="#" className="hover:text-slate-600">Privacy Policy</Link>
             <Link href="#" className="hover:text-slate-600">Terms of Service</Link>
