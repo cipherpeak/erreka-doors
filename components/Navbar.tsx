@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -10,9 +11,13 @@ const navLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Services', href: '/services' },
   { name: 'Products', href: '/products' },
+  { name: 'Gallery', href: '/gallery' },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+  
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -61,7 +66,11 @@ export default function Navbar() {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-0',
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent',
+        isMobileMenuOpen 
+          ? 'bg-white' 
+          : (isScrolled || !isHomePage) 
+            ? 'bg-white/70 backdrop-blur-lg' 
+            : 'bg-transparent',
         !isVisible && '-translate-y-full'
       )}
     >
@@ -82,7 +91,7 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-brand-blue relative group",
-                isScrolled ? "text-slate-600" : "text-white/90"
+                (isScrolled || !isHomePage) ? "text-slate-600" : "text-white/90"
               )}
             >
               {link.name}
@@ -104,16 +113,16 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-slate-900" : "text-white"} />
+            <X className={(isScrolled || !isHomePage) ? "text-slate-900" : "text-white"} />
           ) : (
-            <Menu className={isScrolled ? "text-slate-900" : "text-white"} />
+            <Menu className={(isScrolled || !isHomePage) ? "text-slate-900" : "text-white"} />
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-t border-slate-100 p-6 flex flex-col gap-4 md:hidden shadow-xl animate-in fade-in slide-in-from-top-5">
+        <div className="absolute top-full left-0 right-0 bg-white p-6 flex flex-col gap-4 md:hidden shadow-xl animate-in fade-in slide-in-from-top-5">
           {navLinks.map((link) => (
             <Link
               key={link.name}
