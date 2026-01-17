@@ -5,24 +5,35 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-50 pt-10 pb-6 border-t border-slate-200">
-      <div className="container mx-auto px-6">
+    <footer className="relative pt-16 pb-8 border-t border-slate-800 bg-slate-900 text-white overflow-hidden">
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/footer/bg.png"
+          alt="Footer Background"
+          className="w-full h-full object-cover opacity-70 mix-blend-overlay"
+        />
+        <div className="absolute inset-0 bg-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center mb-6">
-              <img 
-                src="/logo.png" 
-                alt="ERREKA Logo" 
+              <img
+                src="/logo.png"
+                alt="ERREKA Logo"
                 className="h-16 md:h-20 w-auto"
               />
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               Leading the way in automatic door technology and architectural solutions worldwide.
             </p>
           </div>
           <div>
-            <h5 className="font-bold text-slate-900 mb-6">Quick Links</h5>
-            <ul className="space-y-4 text-slate-500 text-sm">
+            <h5 className="font-bold text-white mb-6">Quick Links</h5>
+            <ul className="space-y-4 text-slate-400 text-sm">
               <li><Link href="/about" className="hover:text-brand-blue transition-colors">About Us</Link></li>
               <li><Link href="/services" className="hover:text-brand-blue transition-colors">Services</Link></li>
               <li><Link href="/products" className="hover:text-brand-blue transition-colors">Products</Link></li>
@@ -31,8 +42,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h5 className="font-bold text-slate-900 mb-6">Products</h5>
-            <ul className="space-y-4 text-slate-500 text-sm">
+            <h5 className="font-bold text-white mb-6">Products</h5>
+            <ul className="space-y-4 text-slate-400 text-sm">
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Sliding Doors</Link></li>
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Swing Doors</Link></li>
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Revolving Doors</Link></li>
@@ -40,8 +51,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h5 className="font-bold text-slate-900 mb-6">Contact</h5>
-            <ul className="space-y-4 text-slate-500 text-sm">
+            <h5 className="font-bold text-white mb-6">Contact</h5>
+            <ul className="space-y-4 text-slate-400 text-sm">
               <li>sales@errekadoors.com</li>
               <li>+971 4 285 2806</li>
               <li>+971 50 223 9301</li>
@@ -49,11 +60,11 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-xs">© 2026 Erreka Doors. All rights reserved. Powered by CipherPeak Private Limited</p>
-          <div className="flex gap-6 text-slate-400 text-xs">
-            <Link href="#" className="hover:text-slate-600">Privacy Policy</Link>
-            <Link href="#" className="hover:text-slate-600">Terms of Service</Link>
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-500 text-xs">© 2026 Erreka Doors. All rights reserved. Powered by CipherPeak Private Limited</p>
+          <div className="flex gap-6 text-slate-500 text-xs">
+            <Link href="#" className="hover:text-slate-300">Privacy Policy</Link>
+            <Link href="#" className="hover:text-slate-300">Terms of Service</Link>
           </div>
         </div>
       </div>

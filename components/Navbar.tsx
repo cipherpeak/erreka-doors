@@ -17,7 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
-  
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -66,10 +66,10 @@ export default function Navbar() {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-0',
-        isMobileMenuOpen 
-          ? 'bg-white' 
-          : (isScrolled || !isHomePage) 
-            ? 'bg-white/70 backdrop-blur-lg' 
+        isMobileMenuOpen
+          ? 'bg-white'
+          : (isScrolled || !isHomePage)
+            ? 'bg-white/80 backdrop-blur-lg border-b border-slate-200/50'
             : 'bg-transparent',
         !isVisible && '-translate-y-full'
       )}
@@ -90,8 +90,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-brand-blue relative group",
-                (isScrolled || !isHomePage) ? "text-slate-600" : "text-white/90"
+                "text-sm font-bold transition-colors hover:text-brand-blue relative group text-slate-700"
               )}
             >
               {link.name}
@@ -113,9 +112,9 @@ export default function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={(isScrolled || !isHomePage) ? "text-slate-900" : "text-white"} />
+            <X className="text-slate-900" />
           ) : (
-            <Menu className={(isScrolled || !isHomePage) ? "text-slate-900" : "text-white"} />
+            <Menu className="text-slate-900" />
           )}
         </button>
       </div>

@@ -18,7 +18,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }
   }
 };
 
@@ -26,11 +26,11 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Intro Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, x: -30 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true }}
@@ -62,9 +62,9 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="aspect-square rounded-3xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Our Office" 
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                  alt="Our Office"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 <div className="text-sm font-medium opacity-80 uppercase tracking-widest">Founded</div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -101,39 +101,50 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="container mx-auto px-6">
-          <motion.div 
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/about/vision_mission_bg.png"
+            alt="Background"
+            className="w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-transparent to-slate-900" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-12"
           >
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-500"
             >
-              <div className="w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center mb-8">
+              <div className="w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-blue/20">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-3xl font-heading font-bold mb-6">Our Mission</h3>
-              <p className="text-slate-400 text-lg leading-relaxed">
+              <p className="text-slate-300 text-lg leading-relaxed">
                 To create secure, efficient, and future-ready access solutions through continuous innovation, precision installation, and dependable service. Day by day. Installation by installation. Innovation by innovation.
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              className="p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-500"
             >
-              <div className="w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center mb-8">
+              <div className="w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-blue/20">
                 <Eye className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-3xl font-heading font-bold mb-6">Our Vision</h3>
-              <p className="text-slate-400 text-lg leading-relaxed">
+              <p className="text-slate-300 text-lg leading-relaxed">
                 To be a trusted leader in automatic entrance and building access solutions in the UAE by delivering systems that people rely on every day — systems that inspire confidence, safety, and seamless movement.
               </p>
             </motion.div>
@@ -144,7 +155,7 @@ export default function AboutPage() {
       {/* Values & Standards */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -154,7 +165,7 @@ export default function AboutPage() {
             <h3 className="text-4xl font-heading font-bold text-slate-900 mb-6">The Pillars of Our Excellence</h3>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -168,7 +179,7 @@ export default function AboutPage() {
               { icon: Lightbulb, title: "Innovation", desc: "Smart access and digitally connected building systems." },
               { icon: Users, title: "Trust", desc: "Long-term partnerships built on service excellence." },
             ].map((value, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 variants={itemVariants}
                 className="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all group"

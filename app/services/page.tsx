@@ -1,252 +1,149 @@
 'use client';
 
-import { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Send, 
-  MessageSquare, 
-  Globe,
-  CheckCircle2
-} from "lucide-react";
+import { Settings, Wrench, ShieldCheck, PhoneCall, ArrowRight, CheckCircle2 } from "lucide-react";
 
-export default function ContactPage() {
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormState('submitting');
-    // Simulate API call
-    setTimeout(() => setFormState('success'), 1500);
-  };
+export default function ServicesPage() {
+  const services = [
+    {
+      icon: Settings,
+      image: "/images/services/installation.png",
+      title: "Installation",
+      description: "Expert installation of automatic doors by certified technicians ensuring optimal performance and safety compliance.",
+      features: ["Site Assessment", "Precision Fitting", "Safety Testing"]
+    },
+    {
+      icon: ShieldCheck,
+      image: "/images/services/maintenance.png",
+      title: "Maintenance",
+      description: "Comprehensive maintenance packages to prolong the lifespan of your automatic doors and prevent unexpected breakdowns.",
+      features: ["Regular Inspections", "Performance Tuning", "Compliance Checks"]
+    },
+    {
+      icon: Wrench,
+      image: "/images/services/repairs.png",
+      title: "Repairs",
+      description: "Fast and reliable repair services for all types of automatic doors, minimizing downtime for your business.",
+      features: ["24/7 Emergency Response", "Genuine Parts", "Diagnostic & Resolution"]
+    },
+    {
+      icon: PhoneCall,
+      image: "/images/services/support.png",
+      title: "Technical Support",
+      description: "Dedicated technical support team ready to assist with troubleshooting and operational guidance.",
+      features: ["Remote Assistance", "System Upgrades", "User Training"]
+    }
+  ];
 
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
-      {/* Header Section */}
+
+      {/* Hero Section */}
       <section className="pt-32 pb-16 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Contact Us</h1>
+            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">Our Expertise</h1>
             <h2 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6">
-              Let's Start a <span className="text-brand-blue">Conversation</span>
+              World-Class <span className="text-brand-blue">Services</span>
             </h2>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              Whether you have a question about our products, need technical support, or want to discuss a new project, our team is here to help.
+            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+              We don't just supply doors; we provide complete lifecycle solutions. From professional installation to preventive maintenance, we ensure your entrances perform flawlessly.
             </p>
           </motion.div>
         </div>
       </section>
 
+      {/* Services Grid */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="text-3xl font-heading font-bold text-slate-900 mb-8">Get in Touch</h3>
-              
-              <div className="space-y-8">
-                {[
-                  { icon: Phone, title: "Phone Support", content: "+971 4 285 2806 / +971 50 223 9301" },
-                  { icon: Mail, title: "Email Us", content: "sales@errekadoors.com" },
-                  { icon: Globe, title: "Website", content: "www.errekadoors.com" },
-                  { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 6:00 PM" },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-brand-blue group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                      <p className="text-slate-500">{item.content}</p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group rounded-[2.5rem] border border-slate-100 bg-white hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-300 relative overflow-hidden flex flex-col"
+              >
+                {/* Image Section */}
+                <div className="h-64 w-full relative overflow-hidden">
+                  <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all duration-500 z-10" />
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-6 left-6 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                    <service.icon className="w-7 h-7 text-brand-blue" />
                   </div>
-                ))}
-              </div>
+                </div>
 
-              <div className="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 rounded-full -translate-y-1/2 translate-x-1/2" />
-                <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  Why Contact ERREKA?
-                </h4>
-                <ul className="space-y-3 text-slate-400 text-sm">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Expert technical consultation</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Reliable after-sales service</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Long-term maintenance solutions</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Trusted by leading UAE organizations</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Proven performance in high-traffic environments</li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white border border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-slate-200/50"
-            >
-              {formState === 'success' ? (
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="h-full flex flex-col items-center justify-center text-center py-12"
-                >
-                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">Message Sent!</h3>
-                  <p className="text-slate-500 mb-8">
-                    Thank you for reaching out. One of our experts will get back to you within 24 hours.
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                  <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
+                    {service.description}
                   </p>
-                  <button 
-                    onClick={() => setFormState('idle')}
-                    className="text-brand-blue font-bold hover:underline"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
-                      <input 
-                        required
-                        type="text" 
-                        placeholder="John Doe"
-                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
-                      <input 
-                        required
-                        type="email" 
-                        placeholder="john@example.com"
-                        className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Subject</label>
-                    <select className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all appearance-none">
-                      <option>General Inquiry</option>
-                      <option>Product Quote</option>
-                      <option>Technical Support</option>
-                      <option>Partnership Opportunity</option>
-                    </select>
-                  </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 ml-1">Message</label>
-                    <textarea 
-                      required
-                      rows={5}
-                      placeholder="How can we help you?"
-                      className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all resize-none"
-                    />
-                  </div>
-
-                  <button 
-                    disabled={formState === 'submitting'}
-                    className={`
-                      w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all
-                      ${formState === 'submitting' 
-                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
-                        : 'bg-brand-blue text-white hover:bg-brand-dark shadow-xl shadow-brand-blue/20'}
-                    `}
-                  >
-                    {formState === 'submitting' ? (
-                      <>Sending...</>
-                    ) : (
-                      <>
-                        Send Message <Send className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-            </motion.div>
+                  <ul className="space-y-3 mt-auto">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-500 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="pb-24">
-        <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="h-[500px] w-full rounded-[3rem] overflow-hidden border border-slate-100 shadow-xl relative"
-          >
-            {/* Placeholder for Map - In a real app, use Google Maps or Mapbox */}
-            <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-brand-blue mx-auto mb-4 animate-bounce" />
-                <p className="text-slate-500 font-medium">Interactive Map Integration</p>
-                <p className="text-slate-400 text-sm">123 Engineering Way, Tech City</p>
-              </div>
-            </div>
-            {/* Overlay for premium feel */}
-            <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[3rem]" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Snapshot */}
+      {/* CTA Section */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden group"
           >
-            <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Common Questions</h3>
-            <p className="text-slate-600">Quick answers to some of our most frequently asked questions.</p>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
-          >
-            {[
-              { q: "Do you provide installation services?", a: "Yes, we have a global network of certified engineers who handle professional installation and commissioning." },
-              { q: "What is the typical lead time for custom doors?", a: "Standard products are usually available within 2-4 weeks, while bespoke architectural solutions may take 8-12 weeks." },
-              { q: "Are your products compliant with safety standards?", a: "Absolutely. All Erreka products meet or exceed international safety standards, including EN16005." },
-              { q: "Do you offer 24/7 emergency support?", a: "Yes, we provide round-the-clock technical support and emergency repair services for our maintenance contract clients." },
-            ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100">
-                <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-brand-blue" /> {faq.q}
-                </h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
+            {/* Background Image & Overlay */}
+            <div className="absolute inset-0">
+              <img
+                src="/images/services/cta_bg.png"
+                alt="Background"
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-brand-blue/90 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+            </div>
+
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">Ready to upgrade your entrance?</h2>
+              <p className="text-xl text-white/90 mb-10 font-medium">
+                Contact our team today for a free consultation and quote for your project.
+              </p>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-white text-brand-blue px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+              >
+                Get a Quote <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-brand-blue/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-50" />
           </motion.div>
         </div>
       </section>

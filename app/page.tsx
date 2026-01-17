@@ -24,7 +24,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }
+    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }
   }
 };
 
@@ -56,7 +56,7 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -67,7 +67,7 @@ export default function Home() {
                   <div className="text-slate-500 font-medium">Years Experience</div>
                 </div>
                 <div>
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -80,7 +80,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -93,8 +93,8 @@ export default function Home() {
                 { icon: Globe, title: "UAE Wide", desc: "Trusted by major institutions and brands across the UAE." },
                 { icon: Award, title: "Service Excellence", desc: "Long-term partnerships built on technical competence." },
               ].map((item, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   variants={itemVariants}
                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
                   className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all group"
@@ -112,7 +112,7 @@ export default function Home() {
       {/* Services Snapshot */}
       <section className="py-24 bg-slate-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -125,7 +125,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -133,39 +133,39 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {[
-              { 
-                title: "Installation", 
+              {
+                title: "Installation",
                 desc: "Professional installation of premium global brands tailored to your requirements.",
-                img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800"
+                img: "/images/solutions/installation.png"
               },
-              { 
-                title: "Maintenance (AMC)", 
+              {
+                title: "Maintenance (AMC)",
                 desc: "Preventive & corrective maintenance with full maintenance contracts for predictable costs.",
-                img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+                img: "/images/solutions/maintenance.png"
               },
-              { 
-                title: "Modernization", 
+              {
+                title: "Modernization",
                 desc: "System upgrades and technology modernization to enhance performance and safety.",
-                img: "https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800"
+                img: "/images/solutions/modernization.png"
               },
             ].map((service, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 variants={itemVariants}
                 className="group relative overflow-hidden rounded-3xl aspect-[4/5]"
               >
-                <motion.img 
-                  src={service.img} 
-                  alt={service.title} 
+                <motion.img
+                  src={service.img}
+                  alt={service.title}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.7 }}
-                  className="absolute inset-0 w-full h-full object-cover" 
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-8 w-full">
                   <h4 className="text-2xl font-bold mb-2">{service.title}</h4>
                   <p className="text-slate-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">{service.desc}</p>
-                  <motion.button 
+                  <motion.button
                     whileHover={{ x: 5 }}
                     className="text-brand-blue font-bold flex items-center gap-2"
                   >
@@ -187,14 +187,14 @@ export default function Home() {
               ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
             </p>
           </div>
-          
+
           <div className="relative flex overflow-x-hidden">
-            <motion.div 
+            <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ 
-                ease: "linear", 
-                duration: 30, 
-                repeat: Infinity 
+              transition={{
+                ease: "linear",
+                duration: 30,
+                repeat: Infinity
               }}
               className="flex items-center gap-12 whitespace-nowrap py-4"
             >
@@ -202,8 +202,8 @@ export default function Home() {
                 'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets',
                 'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets'
               ].map((client, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="text-center font-bold text-slate-400 text-sm uppercase tracking-widest px-8 opacity-60 grayscale hover:grayscale-0 hover:text-brand-blue transition-all cursor-default"
                 >
                   {client}
@@ -216,15 +216,15 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 bg-brand-blue relative overflow-hidden">
-        <motion.div 
+        <motion.div
           initial={{ x: "100%" }}
           whileInView={{ x: "50%" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12" 
+          className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12"
         />
         <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -235,20 +235,20 @@ export default function Home() {
                 Consult with our experts today for a customized solution that fits your architectural needs.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all"
               >
                 Get a Quote
               </motion.button>
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all"

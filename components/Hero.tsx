@@ -8,25 +8,25 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
-          alt="Modern Architecture"
+          src="/images/hero_bg.png"
+          alt="Modern Automatic Doors"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-white text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-slate-900/5 backdrop-blur-md border border-slate-900/10 px-4 py-2 rounded-full text-slate-900 text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-brand-blue rounded-full animate-pulse" />
             UAE Specialists in Door Automation
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-[1.1] mb-6">
+
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-slate-900 leading-[1.1] mb-6">
             Automatic Entrance <span className="text-brand-blue">Solutions</span> for Modern Buildings
           </h1>
-          
-          <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+
+          <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
             ERREKA Technical Services LLC is a UAE-based specialist in automatic entrance systems, smart access solutions, and door automation technologies.
           </p>
 
@@ -35,7 +35,7 @@ export default function Hero() {
               Request a Consultation
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+            <button className="w-full sm:w-auto bg-white/50 backdrop-blur-md border border-slate-200 text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/80 transition-all flex items-center justify-center gap-2">
               Get a Maintenance Quote
             </button>
           </div>
@@ -43,9 +43,9 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400">
         <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent" />
+        <div className="w-px h-12 bg-gradient-to-b from-slate-400 to-transparent" />
       </div>
     </section>
   );
