@@ -15,6 +15,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Erreka Doors | Premium Automatic Doors & Architectural Solutions",
   description: "International leader in automatic doors and architectural solutions. High-end engineering for modern spaces.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
