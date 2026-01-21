@@ -19,7 +19,13 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="col-span-1 md:col-span-1"
+          >
             <div className="flex items-center mb-6">
               <img
                 src="/logo.png"
@@ -30,8 +36,13 @@ export default function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed">
               Leading the way in automatic door technology and architectural solutions worldwide.
             </p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h5 className="font-bold text-white mb-6">Quick Links</h5>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><Link href="/about" className="hover:text-brand-blue transition-colors">About Us</Link></li>
@@ -40,8 +51,13 @@ export default function Footer() {
               <li><Link href="/gallery" className="hover:text-brand-blue transition-colors">Gallery</Link></li>
               <li><Link href="/contact" className="hover:text-brand-blue transition-colors">Contact</Link></li>
             </ul>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h5 className="font-bold text-white mb-6">Products</h5>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Sliding Doors</Link></li>
@@ -49,8 +65,13 @@ export default function Footer() {
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Revolving Doors</Link></li>
               <li><Link href="#" className="hover:text-brand-blue transition-colors">Industrial Doors</Link></li>
             </ul>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <h5 className="font-bold text-white mb-6">Contact</h5>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li>sales@errekadoors.com</li>
@@ -58,15 +79,21 @@ export default function Footer() {
               <li>+971 50 223 9301</li>
               <li>Dubai, United Arab Emirates</li>
             </ul>
-          </div>
+          </motion.div>
         </div>
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
           <p className="text-slate-500 text-xs">© 2026 Erreka Doors. Powered by CipherPeak Private Limited</p>
           <div className="flex gap-6 text-slate-500 text-xs">
             {/* <Link href="#" className="hover:text-slate-300">Privacy Policy</Link>
             <Link href="#" className="hover:text-slate-300">Terms of Service</Link> */}
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
