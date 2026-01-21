@@ -61,10 +61,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-xs">© 2026 Erreka Doors. All rights reserved. Powered by CipherPeak Private Limited</p>
+          <p className="text-slate-500 text-xs">© 2026 Erreka Doors. Powered by CipherPeak Private Limited</p>
           <div className="flex gap-6 text-slate-500 text-xs">
-            <Link href="#" className="hover:text-slate-300">Privacy Policy</Link>
-            <Link href="#" className="hover:text-slate-300">Terms of Service</Link>
+            {/* <Link href="#" className="hover:text-slate-300">Privacy Policy</Link>
+            <Link href="#" className="hover:text-slate-300">Terms of Service</Link> */}
           </div>
         </div>
       </div>
