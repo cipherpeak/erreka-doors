@@ -28,7 +28,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Intro Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 pb-8 md:pt-32 md:pb-20 overflow-hidden">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -37,11 +37,11 @@ export default function AboutPage() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-4xl"
           >
-            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4">About ERREKA Technical Services LLC</h1>
-            <h2 className="text-5xl md:text-7xl font-heading font-bold text-slate-900 mb-8 leading-tight">
+            <h1 className="text-brand-blue font-bold tracking-wider uppercase text-xs md:text-sm mb-3 md:mb-4">About ERREKA Technical Services LLC</h1>
+            <h2 className="text-4xl md:text-7xl font-heading font-bold text-slate-900 mb-6 md:mb-8 leading-tight">
               Specialized <span className="text-brand-blue">Access Solutions</span> in the UAE
             </h2>
-            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
+            <p className="text-base md:text-xl text-slate-600 leading-relaxed max-w-3xl">
               Headquartered in the United Arab Emirates, ERREKA was founded to address the growing demand for high-quality automated access systems supported by dependable service and long-term maintenance expertise.
             </p>
           </motion.div>
@@ -51,9 +51,9 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: -30 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -68,9 +68,9 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-brand-blue p-8 rounded-3xl text-white hidden md:block">
-                <div className="text-4xl font-bold mb-1">1970</div>
-                <div className="text-sm font-medium opacity-80 uppercase tracking-widest">Founded</div>
+              <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-brand-blue p-5 md:p-8 rounded-2xl md:rounded-3xl text-white block shadow-xl">
+                <div className="text-2xl md:text-4xl font-bold mb-0.5 md:mb-1">1970</div>
+                <div className="text-xs md:text-sm font-medium opacity-80 uppercase tracking-widest">Founded</div>
               </div>
             </motion.div>
 
@@ -80,8 +80,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-heading font-bold text-slate-900 mb-6">Expertise That Goes Beyond Installation</h3>
-              <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-4 md:mb-6">Expertise That Goes Beyond Installation</h3>
+              <div className="space-y-4 md:space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p>
                   Automatic doors play a critical role in modern buildings by controlling access, optimizing people flow, enhancing security, and improving user convenience.
                 </p>
@@ -101,7 +101,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0">
           <img
@@ -119,7 +119,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           >
             <motion.div
               variants={itemVariants}
@@ -153,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values & Standards */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
