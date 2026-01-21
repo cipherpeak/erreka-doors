@@ -13,7 +13,7 @@ export default function Hero() {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, ease: "easeOut" }}
-          className="w-full h-full"
+          className="w-full h-full will-change-transform"
         >
           <img
             src="/images/hero_bg.png"

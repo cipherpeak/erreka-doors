@@ -3,7 +3,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import { Shield, Zap, Globe, Award, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -262,7 +261,6 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
-      <ScrollToTop />
     </main>
   );
 }
