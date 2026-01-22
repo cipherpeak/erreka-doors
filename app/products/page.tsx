@@ -181,7 +181,7 @@ export default function ProductsPage() {
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </AnimatePresence>
