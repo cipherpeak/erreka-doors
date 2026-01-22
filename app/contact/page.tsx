@@ -69,31 +69,58 @@ export default function ContactPage() {
                   { icon: MapPin, title: "Address", content: <>ERREKA TECHNICAL SERVICES LLC, Alia Building, Shop No 3,<br />Al Qasis Industrial Area 4, Dubai.</> },
                   { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 6:00 PM" },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue transition-colors duration-300">
+                  <motion.div 
+                    key={i} 
+                    className="flex gap-6 group"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    whileHover={{ x: 10 }}
+                  >
+                    <motion.div 
+                      className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue transition-colors duration-300"
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                    >
                       <item.icon className="w-6 h-6 text-brand-blue group-hover:text-white transition-colors duration-300" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
                       <p className="text-slate-500">{item.content}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <motion.div 
+                className="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white relative overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <motion.div 
+                  className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 rounded-full -translate-y-1/2 translate-x-1/2"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
                 <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
                   Why Contact ERREKA?
                 </h4>
                 <ul className="space-y-3 text-slate-400 text-sm">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Expert technical consultation</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Reliable after-sales service</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Long-term maintenance solutions</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Trusted by leading UAE organizations</li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-brand-blue" /> Proven performance in high-traffic environments</li>
+                  {["Expert technical consultation", "Reliable after-sales service", "Long-term maintenance solutions", "Trusted by leading UAE organizations", "Proven performance in high-traffic environments"].map((item, idx) => (
+                    <motion.li 
+                      key={idx}
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.4 + idx * 0.08 }}
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0" /> {item}
+                    </motion.li>
+                  ))}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Contact Form */}
@@ -106,28 +133,56 @@ export default function ContactPage() {
             >
               {formState === 'success' ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
                   className="h-full flex flex-col items-center justify-center text-center py-12"
                 >
-                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">Message Sent!</h3>
-                  <p className="text-slate-500 mb-8">
+                  <motion.div 
+                    className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                    >
+                      <CheckCircle2 className="w-10 h-10 text-green-600" />
+                    </motion.div>
+                  </motion.div>
+                  <motion.h3 
+                    className="text-2xl font-bold text-slate-900 mb-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >Message Sent!</motion.h3>
+                  <motion.p 
+                    className="text-slate-500 mb-8"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
                     Thank you for reaching out. One of our experts will get back to you within 24 hours.
-                  </p>
-                  <button
+                  </motion.p>
+                  <motion.button
                     onClick={() => setFormState('idle')}
                     className="text-brand-blue font-bold hover:underline"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     Send another message
-                  </button>
+                  </motion.button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
                       <input
                         required
@@ -135,8 +190,13 @@ export default function ContactPage() {
                         placeholder="John Doe"
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all"
                       />
-                    </div>
-                    <div className="space-y-2">
+                    </motion.div>
+                    <motion.div 
+                      className="space-y-2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                    >
                       <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
                       <input
                         required
@@ -144,10 +204,15 @@ export default function ContactPage() {
                         placeholder="john@example.com"
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all"
                       />
-                    </div>
+                    </motion.div>
                   </div>
 
-                  <div className="space-y-2">
+                  <motion.div 
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
                     <label className="text-sm font-bold text-slate-700 ml-1">Subject</label>
                     <select className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all appearance-none">
                       <option>General Inquiry</option>
@@ -155,9 +220,14 @@ export default function ContactPage() {
                       <option>Technical Support</option>
                       <option>Partnership Opportunity</option>
                     </select>
-                  </div>
+                  </motion.div>
 
-                  <div className="space-y-2">
+                  <motion.div 
+                    className="space-y-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
                     <label className="text-sm font-bold text-slate-700 ml-1">Message</label>
                     <textarea
                       required
@@ -165,9 +235,9 @@ export default function ContactPage() {
                       placeholder="How can we help you?"
                       className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all resize-none"
                     />
-                  </div>
+                  </motion.div>
 
-                  <button
+                  <motion.button
                     disabled={formState === 'submitting'}
                     className={`
                       w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all
@@ -175,15 +245,29 @@ export default function ContactPage() {
                         ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
                         : 'bg-brand-blue text-white hover:bg-brand-dark shadow-xl shadow-brand-blue/20'}
                     `}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    whileHover={formState !== 'submitting' ? { scale: 1.02 } : {}}
+                    whileTap={formState !== 'submitting' ? { scale: 0.98 } : {}}
                   >
                     {formState === 'submitting' ? (
-                      <>Sending...</>
+                      <>
+                        <motion.span
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                          className="inline-block"
+                        >
+                          ⏳
+                        </motion.span>
+                        Sending...
+                      </>
                     ) : (
                       <>
                         Send Message <Send className="w-5 h-5" />
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </form>
               )}
             </motion.div>

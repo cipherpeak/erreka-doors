@@ -68,37 +68,56 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="group rounded-[2.5rem] border border-slate-100 bg-white hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-300 relative overflow-hidden flex flex-col"
               >
                 {/* Image Section */}
                 <div className="h-64 w-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-all duration-500 z-10" />
-                  <img
+                  <motion.img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    whileHover={{ scale: 1.12 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-6 left-6 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                  <motion.div 
+                    className="absolute top-6 left-6 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.12 }}
+                  >
                     <service.icon className="w-7 h-7 text-brand-blue" />
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                  <motion.h3 
+                    className="text-2xl font-bold text-slate-900 mb-4"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 + index * 0.12 }}
+                  >{service.title}</motion.h3>
                   <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
                     {service.description}
                   </p>
 
                   <ul className="space-y-3 mt-auto">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-500 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-brand-blue" />
+                    {service.features.map((feature, featureIndex) => (
+                      <motion.li 
+                        key={feature} 
+                        className="flex items-center gap-2 text-sm text-slate-500 font-medium"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.3 + featureIndex * 0.05 + index * 0.12 }}
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-brand-blue flex-shrink-0" />
                         {feature}
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -112,38 +131,63 @@ export default function ServicesPage() {
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden group"
           >
             {/* Background Image & Overlay */}
             <div className="absolute inset-0">
-              <img
+              <motion.img
                 src="/images/services/cta_bg.png"
                 alt="Background"
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-brand-blue/90 mix-blend-multiply" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
             </div>
 
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">Ready to upgrade your entrance?</h2>
-              <p className="text-xl text-white/90 mb-10 font-medium">
+              <motion.h2 
+                className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >Ready to upgrade your entrance?</motion.h2>
+              <motion.p 
+                className="text-xl text-white/90 mb-10 font-medium"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Contact our team today for a free consultation and quote for your project.
-              </p>
-              <a
+              </motion.p>
+              <motion.a
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-brand-blue px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                className="inline-flex items-center gap-2 bg-white text-brand-blue px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05, y: -4 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
               >
                 Get a Quote <ArrowRight className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50" />
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-brand-blue/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-50" />
+            <motion.div 
+              className="absolute top-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50"
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div 
+              className="absolute bottom-0 right-0 w-64 h-64 bg-brand-blue/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-50"
+              animate={{ scale: [1.2, 1, 1.2] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
           </motion.div>
         </div>
       </section>

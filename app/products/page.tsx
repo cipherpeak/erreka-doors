@@ -13,7 +13,7 @@ const products = [
     id: 1,
     name: 'ERTAIN Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769065243/sliding_door_ddejiz.png',
     description: 'The ERTAIN sliding door is our most versatile solution, designed for high-traffic environments where reliability and speed are paramount.',
     specs: ['Opening speed: up to 1.0 m/s', 'Max weight: 150kg per leaf', 'IoT Ready', 'Emergency breakout system'],
     features: ['Ultra-quiet operation', 'Slim profile design', 'Advanced safety sensors']
@@ -69,18 +69,18 @@ export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
 
-  const filteredProducts = activeCategory === 'All' 
-    ? products 
+  const filteredProducts = activeCategory === 'All'
+    ? products
     : products.filter(p => p.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Intro Section */}
       <section className="pt-32 pb-16 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -101,7 +101,7 @@ export default function ProductsPage() {
       <section className="py-12">
         <div className="container mx-auto px-6">
           {/* Category Filter */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -111,24 +111,29 @@ export default function ProductsPage() {
               <Filter className="w-4 h-4" />
               <span className="text-sm font-bold uppercase tracking-wider">Filter:</span>
             </div>
-            {categories.map((cat) => (
-              <button
+            {categories.map((cat, idx) => (
+              <motion.button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
                 className={`
                   px-6 py-2.5 rounded-full text-sm font-bold transition-all
-                  ${activeCategory === cat 
-                    ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/20' 
+                  ${activeCategory === cat
+                    ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/20'
                     : 'bg-white text-slate-500 hover:bg-slate-100 border border-slate-200'}
                 `}
               >
                 {cat}
-              </button>
+              </motion.button>
             ))}
           </motion.div>
 
           {/* Product Grid */}
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
@@ -137,19 +142,23 @@ export default function ProductsPage() {
                 <motion.div
                   key={product.id}
                   layout
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 40, rotateY: -15 }}
+                  whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.6, delay: (index % 3) * 0.12, ease: "easeOut" }}
+                  exit={{ opacity: 0, scale: 0.8, rotateY: 15 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   className="group cursor-pointer"
                   onClick={() => setSelectedProduct(product)}
                 >
-                  <div className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500">
+                  <motion.div 
+                    className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500"
+                    whileHover={{ scale: 1.02 }}
+                  >
                     <div className="aspect-[4/3] overflow-hidden relative">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
+                      <img
+                        src={product.image}
+                        alt={product.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -184,20 +193,20 @@ export default function ProductsPage() {
       <AnimatePresence>
         {selectedProduct && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProduct(null)}
               className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"
             />
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="bg-white w-full max-w-5xl rounded-[2.5rem] overflow-hidden relative z-10 shadow-2xl flex flex-col lg:flex-row max-h-[90vh]"
             >
-              <button 
+              <button
                 onClick={() => setSelectedProduct(null)}
                 className="absolute top-6 right-6 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center hover:bg-slate-200 transition-colors z-20"
               >
@@ -205,9 +214,9 @@ export default function ProductsPage() {
               </button>
 
               <div className="lg:w-1/2 h-64 lg:h-auto relative">
-                <img 
-                  src={selectedProduct.image} 
-                  alt={selectedProduct.name} 
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
                   className="w-full h-full object-cover"
                 />
               </div>

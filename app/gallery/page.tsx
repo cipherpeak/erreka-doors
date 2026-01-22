@@ -96,42 +96,63 @@ export default function GalleryPage() {
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+                  whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
                   className="group cursor-pointer relative aspect-square overflow-hidden rounded-3xl bg-slate-100"
                   onClick={() => setSelectedItem(item)}
                 >
-                  <img 
+                  <motion.img 
                     src={item.type === 'video' ? item.thumbnail : item.url} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    alt={item.title}
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ duration: 0.8 }}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                  <motion.div 
+                    className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <div className="flex items-center justify-between">
-                      <div>
+                      <motion.div
+                        initial={{ y: 10, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <span className="text-brand-blue font-bold text-[10px] uppercase tracking-widest mb-2 block">
                           {item.category}
                         </span>
                         <h3 className="text-white font-bold text-xl">{item.title}</h3>
-                      </div>
-                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl">
+                      </motion.div>
+                      <motion.div 
+                        className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl"
+                        initial={{ scale: 0.8 }}
+                        whileHover={{ scale: 1.1 }}
+                      >
                         {item.type === 'video' ? (
                           <Play className="w-5 h-5 text-brand-blue fill-brand-blue" />
                         ) : (
                           <Maximize2 className="w-5 h-5 text-brand-blue" />
                         )}
-                      </div>
+                      </motion.div>
                     </div>
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full">
+                  </motion.div>
+                  <motion.div 
+                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.08 + 0.1 }}
+                  >
                     {item.type === 'video' ? (
                       <Video className="w-4 h-4 text-brand-blue" />
                     ) : (
                       <Camera className="w-4 h-4 text-brand-blue" />
                     )}
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </AnimatePresence>

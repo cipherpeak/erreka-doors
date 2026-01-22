@@ -2,6 +2,9 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TrustedBy from "@/components/TrustedBy";
+import BrandCarousel from "@/components/BrandCarousel";
+import DormakabaParter from "@/components/DormakabaParter";
 import Footer from "@/components/Footer";
 import { Shield, Zap, Globe, Award, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -178,40 +181,13 @@ export default function Home() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Trusted by Leading Organizations</h3>
-            <p className="text-slate-500 max-w-2xl mx-auto">
-              ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
-            </p>
-          </div>
+      <TrustedBy />
 
-          <div className="relative flex overflow-x-hidden">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                ease: "linear",
-                duration: 30,
-                repeat: Infinity
-              }}
-              className="flex items-center gap-12 whitespace-nowrap py-4"
-            >
-              {[
-                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets',
-                'Government Authorities', 'Hospitals', 'Luxury Showrooms', 'Shopping Malls', 'Banks', 'Hypermarkets'
-              ].map((client, i) => (
-                <div
-                  key={i}
-                  className="text-center font-bold text-slate-400 text-sm uppercase tracking-widest px-8 opacity-60 grayscale hover:grayscale-0 hover:text-brand-blue transition-all cursor-default"
-                >
-                  {client}
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Dormakaba Partner Section */}
+      <DormakabaParter isShort={true} />
+
+      {/* Brand Carousel Section */}
+      <BrandCarousel />
 
       {/* CTA Section */}
       <section className="py-24 bg-brand-blue relative overflow-hidden">

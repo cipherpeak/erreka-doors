@@ -2,6 +2,8 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BrandCarousel from "@/components/BrandCarousel";
+import DormakabaParter from "@/components/DormakabaParter";
 import { motion } from "framer-motion";
 import { Target, Eye, ShieldCheck, Users, Lightbulb, Globe } from "lucide-react";
 
@@ -194,6 +196,12 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Dormakaba Partner Section */}
+      <DormakabaParter />
+
+      {/* Brand Carousel Section */}
+      <BrandCarousel />
 
       <Footer />
     </main>

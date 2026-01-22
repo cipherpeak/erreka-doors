@@ -86,17 +86,23 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
+          {navLinks.map((link, index) => (
+            <motion.div
               key={link.name}
-              href={link.href}
-              className={cn(
-                "text-sm font-bold transition-colors hover:text-brand-blue relative group text-slate-700"
-              )}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all group-hover:w-full" />
-            </Link>
+              <Link
+                href={link.href}
+                className={cn(
+                  "text-sm font-bold transition-colors hover:text-brand-blue relative group text-slate-700"
+                )}
+              >
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all group-hover:w-full" />
+              </Link>
+            </motion.div>
           ))}
           <Link
             href="/contact"
