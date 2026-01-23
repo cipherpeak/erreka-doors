@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Maximize2, Info, ArrowRight, Filter } from "lucide-react";
 
-const categories = ['All', 'Sliding Doors', 'Swing Doors', 'Revolving Doors', 'Industrial'];
+const categories = ['All', 'Sliding Doors', 'Swing Doors', 'Revolving Doors', 'Gate Automation', 'Industrial'];
 
 const products = [
   {
@@ -62,6 +62,33 @@ const products = [
     description: 'The EVO operator combines sleek aesthetics with powerful performance, ideal for modern office interiors and retail spaces.',
     specs: ['Height: only 70mm', 'Silent brushless motor', 'Battery backup included', 'Adjustable closing force'],
     features: ['Minimalist design', 'Smooth motion control', 'Long service life']
+  },
+  {
+    id: 7,
+    name: 'Sliding Gate Motor',
+    category: 'Gate Automation',
+    image: 'https://images.unsplash.com/photo-1615886362534-58a36c5615d6?auto=format&fit=crop&q=80&w=800',
+    description: 'Heavy-duty commercial and residential sliding gate operators designed for durability and smooth operation in all weather conditions.',
+    specs: ['Max gate weight: 2000kg', 'Operating speed: 12m/min', 'IP54 Protection', 'Magnetic limit switches'],
+    features: ['Obstacle detection', 'Soft start/stop', 'Intensive use rating']
+  },
+  {
+    id: 8,
+    name: 'Swing Gate Motor',
+    category: 'Gate Automation',
+    image: 'https://images.unsplash.com/photo-1596230529625-7ee4ebf5c353?auto=format&fit=crop&q=80&w=800',
+    description: 'Powerful electromechanical and hydraulic operators for swing gates, providing secure and reliable access control for homes and businesses.',
+    specs: ['Max leaf length: 5m', 'Opening time: 15-25s', 'Max thrust: 5000N', 'Opening angle: up to 120°'],
+    features: ['Silent operation', 'Emergency manual release', 'Wind resistance']
+  },
+  {
+    id: 9,
+    name: 'Automatic Gate Barrier',
+    category: 'Gate Automation',
+    image: 'https://images.unsplash.com/photo-1596773343360-156294eb84e5?auto=format&fit=crop&q=80&w=800',
+    description: 'High-performance automatic barriers for parking lots and traffic management, offering rapid opening times and long operational life.',
+    specs: ['Boom length: up to 8m', 'Opening time: 1.5s - 6s', 'Duty cycle: 100%', 'Brushless motor option'],
+    features: ['LED boom lighting', 'Auto-reverse on impact', 'Loop detector compatible']
   }
 ];
 
@@ -151,7 +178,7 @@ export default function ProductsPage() {
                   className="group cursor-pointer"
                   onClick={() => setSelectedProduct(product)}
                 >
-                  <motion.div 
+                  <motion.div
                     className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500"
                     whileHover={{ scale: 1.02 }}
                   >

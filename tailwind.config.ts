@@ -26,7 +26,7 @@ const config: Config = {
         "3xl": "2rem",
       },
       animation: {
-        marquee: "marquee 40s linear infinite",
+        marquee: "marquee 20s linear infinite",
       },
       keyframes: {
         marquee: {

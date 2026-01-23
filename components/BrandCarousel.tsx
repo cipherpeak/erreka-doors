@@ -1,54 +1,25 @@
 'use client';
 
-import { motion, useAnimationControls } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+
 
 export default function BrandCarousel() {
-  const controls = useAnimationControls();
-
   // Brand images from the public/images/brands folder
   const brands = [
     { name: "Dormakaba", image: "/images/brands/Dormakaba.png" },
+    { name: "GEZE", image: "/images/brands/geze.png" },
     { name: "ASSA", image: "/images/brands/assa.webp" },
+    { name: "TORMAX", image: "/images/brands/tormax.jpg" },
+    { name: "Stanley", image: "/images/brands/stanley.png" },
     { name: "BFT", image: "/images/brands/bft.webp" },
     { name: "CAME", image: "/images/brands/came.png" },
-    { name: "GEZE", image: "/images/brands/geze.png" },
     { name: "LIFE", image: "/images/brands/life.png" },
     { name: "NICE", image: "/images/brands/nice.png" },
     { name: "ROGER", image: "/images/brands/roger.webp" },
-    { name: "TORMAX", image: "/images/brands/tormax.jpg" },
   ];
 
   // Duplicate brands for seamless loop
   const carouselBrands = [...brands, ...brands];
-
-  useEffect(() => {
-    controls.start({
-      x: "-50%",
-      transition: {
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-        repeatType: "loop",
-      },
-    });
-  }, [controls]);
-
-  const handleMouseEnter = () => {
-    controls.stop();
-  };
-
-  const handleMouseLeave = () => {
-    controls.start({
-      x: "-50%",
-      transition: {
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-        repeatType: "loop",
-      },
-    });
-  };
 
   return (
     <section className="py-20 bg-white overflow-hidden relative">
@@ -59,18 +30,10 @@ export default function BrandCarousel() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2 
-            className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4"
-            initial={{ opacity: 0, letterSpacing: "-0.05em" }}
-            whileInView={{ opacity: 1, letterSpacing: "0.05em" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            Our Partners
-          </motion.h2>
           <h3 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
             Brands We Collaborate With
           </h3>
-          <motion.p 
+          <motion.p
             className="text-slate-600 text-lg max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,21 +44,13 @@ export default function BrandCarousel() {
         </motion.div>
       </div>
 
-      {/* Gradient Masks for Fade Effect */}
-      <div className="absolute top-0 left-0 w-24 md:w-32 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-24 md:w-32 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
-
       {/* Carousel Container */}
-      <div
-        className="relative flex overflow-x-hidden group"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <motion.div
-          animate={controls}
-          initial={{ x: 0 }}
-          className="flex gap-8 md:gap-12 py-8"
-        >
+      <div className="relative flex overflow-x-hidden group">
+        {/* Gradient Masks for Fade Effect */}
+        <div className="absolute top-0 left-0 w-24 md:w-32 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-24 md:w-32 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
+        <div className="flex gap-8 md:gap-12 py-8 animate-marquee hover:[animation-play-state:paused]">
           {carouselBrands.map((brand, index) => (
             <motion.div
               key={index}
@@ -110,7 +65,7 @@ export default function BrandCarousel() {
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

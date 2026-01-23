@@ -18,24 +18,24 @@ export default function TrustedBy() {
         <section className="py-20 bg-white overflow-hidden relative">
             <div className="container mx-auto px-6 mb-12 text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
                 >
-                  <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Trusted by Leading Organizations</h3>
-                  <p className="text-slate-500 max-w-2xl mx-auto">
-                    ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
-                  </p>
+                    <h3 className="text-3xl font-heading font-bold text-slate-900 mb-4">Trusted by Leading Organizations</h3>
+                    <p className="text-slate-500 max-w-2xl mx-auto">
+                        ERREKA Technical Services LLC is trusted by major institutions across the UAE, reflecting our technical competence and reliability.
+                    </p>
                 </motion.div>
             </div>
 
-            {/* Gradient Masks for Fade Effect */}
-            <div className="absolute top-0 left-0 w-24 md:w-32 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-24 md:w-32 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
-
             {/* Marquee Container */}
             <div className="relative flex overflow-x-hidden group">
+                {/* Gradient Masks for Fade Effect */}
+                <div className="absolute top-0 left-0 w-24 md:w-32 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
                 <div className="flex animate-marquee hover:[animation-play-state:paused] items-center gap-16 whitespace-nowrap py-6">
                     {marqueeContent.map((client, i) => (
                         <div

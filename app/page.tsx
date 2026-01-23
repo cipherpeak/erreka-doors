@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
 import BrandCarousel from "@/components/BrandCarousel";
+import ClientLogos from "@/components/ClientLogos";
 import DormakabaParter from "@/components/DormakabaParter";
 import Footer from "@/components/Footer";
 import { Shield, Zap, Globe, Award, ChevronRight } from "lucide-react";
@@ -188,6 +189,9 @@ export default function Home() {
 
       {/* Brand Carousel Section */}
       <BrandCarousel />
+
+      {/* Client Logos Section */}
+      <ClientLogos />
 
       {/* CTA Section */}
       <section className="py-24 bg-brand-blue relative overflow-hidden">

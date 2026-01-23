@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BrandCarousel from "@/components/BrandCarousel";
 import DormakabaParter from "@/components/DormakabaParter";
+import ClientLogos from "@/components/ClientLogos";
 import { motion } from "framer-motion";
 import { Target, Eye, ShieldCheck, Users, Lightbulb, Globe } from "lucide-react";
 
@@ -202,6 +203,9 @@ export default function AboutPage() {
 
       {/* Brand Carousel Section */}
       <BrandCarousel />
+
+      {/* Client Logos Section */}
+      <ClientLogos />
 
       <Footer />
     </main>
