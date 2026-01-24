@@ -67,10 +67,10 @@ export default function ContactPage() {
                   { icon: Phone, title: "Phone Support", content: "+971 4 285 2806 / +971 50 223 9301" },
                   { icon: Mail, title: "Email Us", content: "sales@errekadoors.com" },
                   { icon: MapPin, title: "Address", content: <>ERREKA TECHNICAL SERVICES LLC, Alia Building, Shop No 3,<br />Al Qasis Industrial Area 4, Dubai.</> },
-                  { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 6:00 PM" },
+                  { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 5:00 PM" },
                 ].map((item, i) => (
-                  <motion.div 
-                    key={i} 
+                  <motion.div
+                    key={i}
                     className="flex gap-6 group"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +78,7 @@ export default function ContactPage() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     whileHover={{ x: 10 }}
                   >
-                    <motion.div 
+                    <motion.div
                       className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:bg-brand-blue transition-colors duration-300"
                       whileHover={{ scale: 1.1, rotate: 10 }}
                     >
@@ -92,14 +92,14 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <motion.div 
+              <motion.div
                 className="mt-16 p-8 bg-slate-900 rounded-[2rem] text-white relative overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <motion.div 
+                <motion.div
                   className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/20 rounded-full -translate-y-1/2 translate-x-1/2"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 3, repeat: Infinity }}
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 </h4>
                 <ul className="space-y-3 text-slate-400 text-sm">
                   {["Expert technical consultation", "Reliable after-sales service", "Long-term maintenance solutions", "Trusted by leading UAE organizations", "Proven performance in high-traffic environments"].map((item, idx) => (
-                    <motion.li 
+                    <motion.li
                       key={idx}
                       className="flex items-center gap-2"
                       initial={{ opacity: 0, x: -10 }}
@@ -138,7 +138,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.6 }}
                   className="h-full flex flex-col items-center justify-center text-center py-12"
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -151,13 +151,13 @@ export default function ContactPage() {
                       <CheckCircle2 className="w-10 h-10 text-green-600" />
                     </motion.div>
                   </motion.div>
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold text-slate-900 mb-4"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >Message Sent!</motion.h3>
-                  <motion.p 
+                  <motion.p
                     className="text-slate-500 mb-8"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -177,7 +177,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <motion.div 
+                    <motion.div
                       className="space-y-2"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ export default function ContactPage() {
                         className="w-full px-6 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 outline-none transition-all"
                       />
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="space-y-2"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ export default function ContactPage() {
                     </motion.div>
                   </div>
 
-                  <motion.div 
+                  <motion.div
                     className="space-y-2"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +222,7 @@ export default function ContactPage() {
                     </select>
                   </motion.div>
 
-                  <motion.div 
+                  <motion.div
                     className="space-y-2"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

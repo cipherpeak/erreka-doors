@@ -6,12 +6,13 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Maximize2, Info, ArrowRight, Filter } from "lucide-react";
 
-const categories = ['All', 'Sliding Doors', 'Swing Doors', 'Revolving Doors', 'Gate Automation', 'Industrial'];
+const categories = ['All', 'Sliding Doors', 'Revolving Doors', 'Gate Automation', 'Gate Barriers', 'Industrial'];
 
 const products = [
+  // Sliding Doors
   {
     id: 1,
-    name: 'ERTAIN Sliding Door',
+    name: 'Automatic Sliding Door',
     category: 'Sliding Doors',
     image: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769065243/sliding_door_ddejiz.png',
     description: 'The ERTAIN sliding door is our most versatile solution, designed for high-traffic environments where reliability and speed are paramount.',
@@ -20,75 +21,146 @@ const products = [
   },
   {
     id: 2,
-    name: 'GLOBAL Swing Operator',
-    category: 'Swing Doors',
+    name: 'Breakout Sliding Door',
+    category: 'Sliding Doors',
     image: 'https://images.unsplash.com/photo-1517646288024-aaee00975160?auto=format&fit=crop&q=80&w=800',
-    description: 'A powerful and compact operator for automatic swing doors, suitable for both new installations and retrofitting existing manual doors.',
-    specs: ['Max leaf width: 1400mm', 'Max leaf weight: 250kg', 'Push/Pull arms available', 'Low energy mode'],
-    features: ['Wind load compensation', 'Fire door certified', 'Easy configuration via app']
+    description: 'Designed for emergency egress, allowing door panels to swing out in case of panic or evacuation needs.',
+    specs: ['Full breakout capability', 'Mechanical release system', 'Compliance with fire codes', 'High durability tracks'],
+    features: ['Emergency exit ready', 'Maximize opening width', 'Safety glass']
   },
   {
     id: 3,
-    name: 'KRYSTAL Revolving Door',
-    category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800',
-    description: 'The KRYSTAL series offers an elegant all-glass design that maximizes natural light while providing superior climate control for building entrances.',
-    specs: ['Diameter: 1800mm - 3600mm', '3 or 4 leaf configurations', 'Manual or Automatic', 'Night shield option'],
-    features: ['Frameless glass design', 'Energy saving climate seal', 'Integrated LED lighting']
+    name: 'Telescopic Sliding Door',
+    category: 'Sliding Doors',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
+    description: 'Ideal for narrow entrances requiring maximum opening width, utilizing overlapping sliding leaves.',
+    specs: ['2 or 4 leaf configuration', 'Max opening width optimization', 'Heavy-duty carrier wheels', 'Smart controller'],
+    features: ['Space-saving design', 'Wide clear passage', 'Smooth telescopic motion']
   },
   {
     id: 4,
-    name: 'CLEAN Sliding Door',
+    name: 'Curved Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
-    description: 'Specifically designed for healthcare and laboratory environments, providing hermetic sealing and easy-to-clean surfaces.',
-    specs: ['Hermetic seal class 4', 'Lead shielding available', 'Touchless activation', 'Antibacterial finish'],
-    features: ['Air-tight performance', 'Flush glazing', 'Silent operation']
+    image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
+    description: 'Aesthetically pleasing curved sliding doors that add a touch of elegance to any building facade.',
+    specs: ['Customizable radius', ' concave or convex layout', '360° drive system', 'Integrated sensors'],
+    features: ['Architectural statement', 'Panoramic view', 'Premium finish']
   },
+
+  // Revolving Doors
   {
     id: 5,
-    name: 'HEAVY Industrial Door',
-    category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    description: 'Robust high-speed doors for industrial warehouses and logistics centers, designed for intensive use and durability.',
-    specs: ['Opening speed: 2.5 m/s', 'Wind resistance: Class 3', 'Self-repairing curtain', 'Safety light curtain'],
-    features: ['High-cycle durability', 'Energy loss reduction', 'Impact resistant']
+    name: 'Manual Revolving Door',
+    category: 'Revolving Doors',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800',
+    description: 'Classic manual revolving door providing excellent climate control and traffic management without power consumption.',
+    specs: ['Diameter options: 1.8m - 3.0m', '3 or 4 wing design', 'Speed control damper', 'Aluminum or Stainless steel'],
+    features: ['Energy saving', 'Draft isolation', 'Low maintenance']
   },
   {
     id: 6,
-    name: 'EVO Swing Door',
-    category: 'Swing Doors',
-    image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
-    description: 'The EVO operator combines sleek aesthetics with powerful performance, ideal for modern office interiors and retail spaces.',
-    specs: ['Height: only 70mm', 'Silent brushless motor', 'Battery backup included', 'Adjustable closing force'],
-    features: ['Minimalist design', 'Smooth motion control', 'Long service life']
+    name: 'Automatic Revolving Door',
+    category: 'Revolving Doors',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+    description: 'Fully automated high-capacity revolving door for seamless hands-free access in busy venues.',
+    specs: ['Motion sensor activation', 'Safety heel sensors', 'Emergency stop button', 'Program selector'],
+    features: ['Touchless entry', 'High throughput', 'Sophisticated safety']
   },
   {
     id: 7,
-    name: 'Sliding Gate Motor',
-    category: 'Gate Automation',
-    image: 'https://images.unsplash.com/photo-1615886362534-58a36c5615d6?auto=format&fit=crop&q=80&w=800',
-    description: 'Heavy-duty commercial and residential sliding gate operators designed for durability and smooth operation in all weather conditions.',
-    specs: ['Max gate weight: 2000kg', 'Operating speed: 12m/min', 'IP54 Protection', 'Magnetic limit switches'],
-    features: ['Obstacle detection', 'Soft start/stop', 'Intensive use rating']
+    name: 'Revolving Door with Integrated Sliding Door',
+    category: 'Revolving Doors',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800',
+    description: 'A versatile hybrid system combining a revolving door for climate control with an integrated central sliding door.',
+    specs: ['Multi-mode operation', 'Central sliding functionality', 'Maximize rush-hour flow', 'Night security lock'],
+    features: ['Flexible functionality', 'Best of both worlds', 'Elegant integration']
   },
   {
     id: 8,
-    name: 'Swing Gate Motor',
-    category: 'Gate Automation',
-    image: 'https://images.unsplash.com/photo-1596230529625-7ee4ebf5c353?auto=format&fit=crop&q=80&w=800',
-    description: 'Powerful electromechanical and hydraulic operators for swing gates, providing secure and reliable access control for homes and businesses.',
-    specs: ['Max leaf length: 5m', 'Opening time: 15-25s', 'Max thrust: 5000N', 'Opening angle: up to 120°'],
-    features: ['Silent operation', 'Emergency manual release', 'Wind resistance']
+    name: 'Breakout Revolving Door',
+    category: 'Revolving Doors',
+    image: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&q=80&w=800',
+    description: 'Features collapsible wings that can be folded to allow unobstructed passage during emergencies.',
+    specs: ['Collapsible door wings', 'Fire alarm integration', 'Magnetic positioning', 'Push-bar release'],
+    features: ['Emergency escape route', 'Clear wide passage', 'Safety compliance']
   },
   {
     id: 9,
-    name: 'Automatic Gate Barrier',
+    name: 'Glass Revolving Door',
+    category: 'Revolving Doors',
+    image: 'https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&q=80&w=800',
+    description: 'All-glass revolving door designed for transparency and modern architectural integration.',
+    specs: ['Frameless glass wings', 'Minimalist canopy', 'Underfloor drive option', 'Toughened safety glass'],
+    features: ['Crystal clear aesthetics', 'Maximum natural light', 'Modern luxury look']
+  },
+
+  // Gate Automation
+  {
+    id: 10,
+    name: 'Sliding Gate Motor',
     category: 'Gate Automation',
+    image: 'https://images.unsplash.com/photo-1615886362534-58a36c5615d6?auto=format&fit=crop&q=80&w=800',
+    description: 'Heavy-duty motor for residential and industrial sliding gates, ensuring secure and reliable automation.',
+    specs: ['Max gate weight: up to 2000kg', 'Oil-bath lubrication', 'Soft start/stop', 'Obstacle detection'],
+    features: ['Robust construction', 'Weatherproof', 'Secure locking']
+  },
+  {
+    id: 11,
+    name: 'Swing Gate Motor',
+    category: 'Gate Automation',
+    image: 'https://images.unsplash.com/photo-1596230529625-7ee4ebf5c353?auto=format&fit=crop&q=80&w=800',
+    description: 'Efficient electromechanical or hydraulic operators for swing gates of various lengths and weights.',
+    specs: ['Leaf length: up to 5m', 'Articulated or linear arm', 'Opening angle up to 120°', 'Battery backup ready'],
+    features: ['Silent movement', 'Easy manual release', 'Long-lasting reliability']
+  },
+
+  // Gate Barriers
+  {
+    id: 12,
+    name: 'Parking Gate Barriers',
+    category: 'Gate Barriers',
     image: 'https://images.unsplash.com/photo-1596773343360-156294eb84e5?auto=format&fit=crop&q=80&w=800',
-    description: 'High-performance automatic barriers for parking lots and traffic management, offering rapid opening times and long operational life.',
-    specs: ['Boom length: up to 8m', 'Opening time: 1.5s - 6s', 'Duty cycle: 100%', 'Brushless motor option'],
-    features: ['LED boom lighting', 'Auto-reverse on impact', 'Loop detector compatible']
+    description: 'Rapid-action automatic barriers for managing vehicle access in parking lots, toll booths, and private roads.',
+    specs: ['Boom length: 3m - 8m', 'Opening time: < 3s', 'Intensive duty cycle', 'LED boom lighting'],
+    features: ['Traffic control', 'Anti-crush safety', 'High speed operation']
+  },
+
+  // Industrial
+  {
+    id: 13,
+    name: 'Roller Shutter',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+    description: 'Secure and compact rolling shutter doors suitable for warehouses, factories, and commercial shopfronts.',
+    specs: ['Galvanized steel slats', 'Wind resistant', 'Electric or chain operation', 'Fire rated options'],
+    features: ['Space efficient', 'High security', 'Durable finish']
+  },
+  {
+    id: 14,
+    name: 'Sectional Overhead Door',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800',
+    description: 'Insulated sectional doors that open vertically, offering excellent thermal protection and operational efficiency.',
+    specs: ['PU foam insulation', 'Windows/Glazing options', 'Finger-safe panel design', 'Spring balanced'],
+    features: ['Thermal efficiency', 'Smooth operation', 'Custom track capabilities']
+  },
+  {
+    id: 15,
+    name: 'High Speed Door',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=800',
+    description: 'Fast-acting PVC curtain doors designed to minimize air exchange and optimize logistics flow.',
+    specs: ['Opening speed: up to 2.5 m/s', 'Self-repairing zipper system', 'Frequency inverter', 'Radar activation'],
+    features: ['Rapid cycle', 'Climate control', 'Crash forgiving']
+  },
+  {
+    id: 16,
+    name: 'Garage Door',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1621255877893-b09e23293e50?auto=format&fit=crop&q=80&w=800',
+    description: 'Residential and light-commercial garage doors combining style, security, and convenience.',
+    specs: ['Remote control access', 'Insulated styling', 'Quiet belt drive', 'Smart home compatible'],
+    features: ['Curb appeal', 'Secure protection', 'Convenient access']
   }
 ];
 

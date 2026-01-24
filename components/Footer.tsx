@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,20 +52,7 @@ export default function Footer() {
               <li><Link href="/contact" className="hover:text-brand-blue transition-colors">Contact</Link></li>
             </ul>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h5 className="font-bold text-white mb-6">Products</h5>
-            <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link href="#" className="hover:text-brand-blue transition-colors">Sliding Doors</Link></li>
-              <li><Link href="#" className="hover:text-brand-blue transition-colors">Swing Doors</Link></li>
-              <li><Link href="#" className="hover:text-brand-blue transition-colors">Revolving Doors</Link></li>
-              <li><Link href="#" className="hover:text-brand-blue transition-colors">Industrial Doors</Link></li>
-            </ul>
-          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

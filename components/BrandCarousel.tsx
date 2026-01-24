@@ -56,7 +56,8 @@ export default function BrandCarousel() {
               key={index}
               whileHover={{ scale: 1.1, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="flex-shrink-0 h-24 md:h-32 w-32 md:w-40 flex items-center justify-center px-6 md:px-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-blue/50 hover:shadow-lg transition-all"
+              className={`flex-shrink-0 h-24 md:h-32 w-32 md:w-40 flex items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-blue/50 hover:shadow-lg transition-all ${brand.name === "Dormakaba" ? "p-1" : "px-6 md:px-8"
+                }`}
             >
               <img
                 src={brand.image}

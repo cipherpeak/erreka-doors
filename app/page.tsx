@@ -55,7 +55,7 @@ export default function Home() {
                 ERREKA Technical Services LLC was established with a singular focus: to deliver reliable, innovative, and future-ready automatic door solutions supported by expert installation and long-term service excellence.
               </p>
               <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                Automatic entrance systems are more than doors — they are the first point of interaction between people and buildings. At ERREKA, we ensure that every entrance delivers performance, safety, and trust, day after day.
+                Automatic entrance systems are more than doors, they are the first point of interaction between people and buildings. At ERREKA, we ensure that every entrance delivers performance, safety, and trust, day after day.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
@@ -65,9 +65,9 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="text-4xl font-bold text-brand-blue mb-1"
                   >
-                    50+
+                    5+
                   </motion.div>
-                  <div className="text-slate-500 font-medium">Years Experience</div>
+                  <div className="text-slate-500 font-medium">Years of Experience</div>
                 </div>
                 <div>
                   <motion.div

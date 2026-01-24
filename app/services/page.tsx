@@ -17,8 +17,8 @@ export default function ServicesPage() {
     {
       icon: ShieldCheck,
       image: "/images/services/maintenance.png",
-      title: "Maintenance",
-      description: "Comprehensive maintenance packages to prolong the lifespan of your automatic doors and prevent unexpected breakdowns.",
+      title: "Annual Maintenance Contract",
+      description: "Comprehensive annual maintenance packages for automatic doors to prolong the lifespan of your automatic doors and prevent unexpected breakdowns.",
       features: ["Regular Inspections", "Performance Tuning", "Compliance Checks"]
     },
     {
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full h-full object-cover"
                   />
-                  <motion.div 
+                  <motion.div
                     className="absolute top-6 left-6 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg"
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
@@ -96,7 +96,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="p-8 flex flex-col flex-grow">
-                  <motion.h3 
+                  <motion.h3
                     className="text-2xl font-bold text-slate-900 mb-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -108,8 +108,8 @@ export default function ServicesPage() {
 
                   <ul className="space-y-3 mt-auto">
                     {service.features.map((feature, featureIndex) => (
-                      <motion.li 
-                        key={feature} 
+                      <motion.li
+                        key={feature}
                         className="flex items-center gap-2 text-sm text-slate-500 font-medium"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -151,13 +151,13 @@ export default function ServicesPage() {
             </div>
 
             <div className="relative z-10 max-w-3xl mx-auto">
-              <motion.h2 
+              <motion.h2
                 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >Ready to upgrade your entrance?</motion.h2>
-              <motion.p 
+              <motion.p
                 className="text-xl text-white/90 mb-10 font-medium"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -178,12 +178,12 @@ export default function ServicesPage() {
             </div>
 
             {/* Decorative elements */}
-            <motion.div 
+            <motion.div
               className="absolute top-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 opacity-50"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 4, repeat: Infinity }}
             />
-            <motion.div 
+            <motion.div
               className="absolute bottom-0 right-0 w-64 h-64 bg-brand-blue/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-50"
               animate={{ scale: [1.2, 1, 1.2] }}
               transition={{ duration: 4, repeat: Infinity }}
