@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,39 +13,31 @@ const products = [
   // Sliding Doors
   {
     id: 1,
-    name: 'Automatic Sliding Door',
+    name: 'Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769065243/sliding_door_ddejiz.png',
-    description: 'The ERTAIN sliding door is our most versatile solution, designed for high-traffic environments where reliability and speed are paramount.',
-    specs: ['Opening speed: up to 1.0 m/s', 'Max weight: 150kg per leaf', 'IoT Ready', 'Emergency breakout system'],
-    features: ['Ultra-quiet operation', 'Slim profile design', 'Advanced safety sensors']
+    image: '/images/products/Automatic Sliding Door.jpg',
+    description: 'Sliding door operators are devices that control the movement of sliding doors, allowing them to open and close automatically. They enhance accessibility, improve safety, and provide a smooth, efficient operation for both residential and commercial spaces.'
   },
   {
     id: 2,
     name: 'Breakout Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1517646288024-aaee00975160?auto=format&fit=crop&q=80&w=800',
-    description: 'Designed for emergency egress, allowing door panels to swing out in case of panic or evacuation needs.',
-    specs: ['Full breakout capability', 'Mechanical release system', 'Compliance with fire codes', 'High durability tracks'],
-    features: ['Emergency exit ready', 'Maximize opening width', 'Safety glass']
+    image: '/images/products/Breakout Sliding Door.jpg',
+    description: 'A sliding door that can “break out” or swing open in an emergency to allow safe and quick egress. It combines the space-saving convenience of a sliding door with the safety of a traditional swing door, making it ideal for meeting rooms, offices, and public spaces where fast evacuation is essential.'
   },
   {
     id: 3,
     name: 'Telescopic Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
-    description: 'Ideal for narrow entrances requiring maximum opening width, utilizing overlapping sliding leaves.',
-    specs: ['2 or 4 leaf configuration', 'Max opening width optimization', 'Heavy-duty carrier wheels', 'Smart controller'],
-    features: ['Space-saving design', 'Wide clear passage', 'Smooth telescopic motion']
+    image: '/images/products/Telescopic Sliding Door.jpeg',
+    description: 'A space-saving sliding door that moves in multiple overlapping panels, allowing a wider opening while requiring minimal wall space. Ideal for entrances where a large clear opening is needed in limited space.'
   },
   {
     id: 4,
     name: 'Curved Sliding Door',
     category: 'Sliding Doors',
-    image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
-    description: 'Aesthetically pleasing curved sliding doors that add a touch of elegance to any building facade.',
-    specs: ['Customizable radius', ' concave or convex layout', '360° drive system', 'Integrated sensors'],
-    features: ['Architectural statement', 'Panoramic view', 'Premium finish']
+    image: '/images/products/Curved Sliding Door.jpeg',
+    description: 'A sliding door designed to follow a curved track, creating a smooth, stylish entrance while saving space. Ideal for modern interiors and areas with non-linear layouts.'
   },
 
   // Revolving Doors
@@ -52,46 +45,36 @@ const products = [
     id: 5,
     name: 'Manual Revolving Door',
     category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800',
-    description: 'Classic manual revolving door providing excellent climate control and traffic management without power consumption.',
-    specs: ['Diameter options: 1.8m - 3.0m', '3 or 4 wing design', 'Speed control damper', 'Aluminum or Stainless steel'],
-    features: ['Energy saving', 'Draft isolation', 'Low maintenance']
+    image: '/images/products/Manula Revolving Door.avif',
+    description: 'A door with rotating panels operated by hand, allowing people to enter and exit efficiently while controlling airflow and maintaining building climate.'
   },
   {
     id: 6,
     name: 'Automatic Revolving Door',
     category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-    description: 'Fully automated high-capacity revolving door for seamless hands-free access in busy venues.',
-    specs: ['Motion sensor activation', 'Safety heel sensors', 'Emergency stop button', 'Program selector'],
-    features: ['Touchless entry', 'High throughput', 'Sophisticated safety']
+    image: '/images/products/Automatic Revolving Door.jpg',
+    description: 'A revolving door with sensor-controlled automatic rotation, providing smooth, hands-free entry while maintaining energy efficiency and controlling indoor climate.'
   },
   {
     id: 7,
-    name: 'Revolving Door with Integrated Sliding Door',
+    name: 'Revolving door with integrated sliding door',
     category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800',
-    description: 'A versatile hybrid system combining a revolving door for climate control with an integrated central sliding door.',
-    specs: ['Multi-mode operation', 'Central sliding functionality', 'Maximize rush-hour flow', 'Night security lock'],
-    features: ['Flexible functionality', 'Best of both worlds', 'Elegant integration']
+    image: '/images/products/Revolving Door with Sliding Intergrated.jpeg',
+    description: 'A revolving door combined with an automatic sliding door for easy access, allowing smooth everyday use and wider opening for carts, wheelchairs, or emergencies.'
   },
   {
     id: 8,
-    name: 'Breakout Revolving Door',
+    name: 'Breakout Revolving door',
     category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&q=80&w=800',
-    description: 'Features collapsible wings that can be folded to allow unobstructed passage during emergencies.',
-    specs: ['Collapsible door wings', 'Fire alarm integration', 'Magnetic positioning', 'Push-bar release'],
-    features: ['Emergency escape route', 'Clear wide passage', 'Safety compliance']
+    image: '/images/products/Breakout Revolving door.avif',
+    description: 'A revolving door that can open outward in an emergency, providing a wide, safe exit while maintaining normal revolving operation during everyday use.'
   },
   {
     id: 9,
     name: 'Glass Revolving Door',
     category: 'Revolving Doors',
-    image: 'https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&q=80&w=800',
-    description: 'All-glass revolving door designed for transparency and modern architectural integration.',
-    specs: ['Frameless glass wings', 'Minimalist canopy', 'Underfloor drive option', 'Toughened safety glass'],
-    features: ['Crystal clear aesthetics', 'Maximum natural light', 'Modern luxury look']
+    image: '/images/products/Glass Revolving Door.jpg',
+    description: 'A revolving door made primarily of glass panels, offering a modern look while allowing visibility, natural light, and smooth traffic flow'
   },
 
   // Gate Automation
@@ -99,19 +82,15 @@ const products = [
     id: 10,
     name: 'Sliding Gate Motor',
     category: 'Gate Automation',
-    image: 'https://images.unsplash.com/photo-1615886362534-58a36c5615d6?auto=format&fit=crop&q=80&w=800',
-    description: 'Heavy-duty motor for residential and industrial sliding gates, ensuring secure and reliable automation.',
-    specs: ['Max gate weight: up to 2000kg', 'Oil-bath lubrication', 'Soft start/stop', 'Obstacle detection'],
-    features: ['Robust construction', 'Weatherproof', 'Secure locking']
+    image: '/images/products/Sliding gate motor.jpg',
+    description: 'A motorized system that automatically opens and closes sliding gates, providing secure, smooth, and convenient access control.'
   },
   {
     id: 11,
     name: 'Swing Gate Motor',
     category: 'Gate Automation',
-    image: 'https://images.unsplash.com/photo-1596230529625-7ee4ebf5c353?auto=format&fit=crop&q=80&w=800',
-    description: 'Efficient electromechanical or hydraulic operators for swing gates of various lengths and weights.',
-    specs: ['Leaf length: up to 5m', 'Articulated or linear arm', 'Opening angle up to 120°', 'Battery backup ready'],
-    features: ['Silent movement', 'Easy manual release', 'Long-lasting reliability']
+    image: '/images/products/Automatic Swing Gate Motor.jpg',
+    description: 'A motorized mechanism that automatically opens and closes swing gates, ensuring smooth operation, security, and convenience'
   },
 
   // Gate Barriers
@@ -119,48 +98,38 @@ const products = [
     id: 12,
     name: 'Parking Gate Barriers',
     category: 'Gate Barriers',
-    image: 'https://images.unsplash.com/photo-1596773343360-156294eb84e5?auto=format&fit=crop&q=80&w=800',
-    description: 'Rapid-action automatic barriers for managing vehicle access in parking lots, toll booths, and private roads.',
-    specs: ['Boom length: 3m - 8m', 'Opening time: < 3s', 'Intensive duty cycle', 'LED boom lighting'],
-    features: ['Traffic control', 'Anti-crush safety', 'High speed operation']
+    image: '/images/products/parking-barrier-1.jpg',
+    description: 'Automated barriers used to control vehicle entry and exit in parking areas, ensuring security and smooth traffic flow.'
   },
 
   // Industrial
   {
     id: 13,
-    name: 'Roller Shutter',
+    name: 'Roller Shutters',
     category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    description: 'Secure and compact rolling shutter doors suitable for warehouses, factories, and commercial shopfronts.',
-    specs: ['Galvanized steel slats', 'Wind resistant', 'Electric or chain operation', 'Fire rated options'],
-    features: ['Space efficient', 'High security', 'Durable finish']
+    image: '/images/products/Roller Shutter.webp',
+    description: 'Durable shutters that roll up and down vertically, providing security, privacy, and protection for shops, garages, and industrial spaces.'
   },
   {
     id: 14,
-    name: 'Sectional Overhead Door',
+    name: 'Sectional Overhead Doors',
     category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&q=80&w=800',
-    description: 'Insulated sectional doors that open vertically, offering excellent thermal protection and operational efficiency.',
-    specs: ['PU foam insulation', 'Windows/Glazing options', 'Finger-safe panel design', 'Spring balanced'],
-    features: ['Thermal efficiency', 'Smooth operation', 'Custom track capabilities']
+    image: '/images/products/Sectional Overhead Doors.jpeg',
+    description: 'Doors made of horizontal panels that lift upward and slide overhead, saving space while providing strong insulation and security'
   },
   {
     id: 15,
-    name: 'High Speed Door',
+    name: 'High Speed Doors',
     category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=800',
-    description: 'Fast-acting PVC curtain doors designed to minimize air exchange and optimize logistics flow.',
-    specs: ['Opening speed: up to 2.5 m/s', 'Self-repairing zipper system', 'Frequency inverter', 'Radar activation'],
-    features: ['Rapid cycle', 'Climate control', 'Crash forgiving']
+    image: '/images/products/High speed doors.jpg',
+    description: 'Fast-operating doors designed for quick opening and closing, improving workflow, energy efficiency, and environmental control in industrial and commercial spaces.'
   },
   {
     id: 16,
-    name: 'Garage Door',
+    name: 'Garage Doors',
     category: 'Industrial',
-    image: 'https://images.unsplash.com/photo-1621255877893-b09e23293e50?auto=format&fit=crop&q=80&w=800',
-    description: 'Residential and light-commercial garage doors combining style, security, and convenience.',
-    specs: ['Remote control access', 'Insulated styling', 'Quiet belt drive', 'Smart home compatible'],
-    features: ['Curb appeal', 'Secure protection', 'Convenient access']
+    image: '/images/products/Garage Doors.jpeg',
+    description: 'Doors designed to secure and provide easy access to garages, available in various styles such as sectional, roller, or tilt.'
   }
 ];
 
@@ -320,7 +289,7 @@ export default function ProductsPage() {
                 />
               </div>
 
-              <div className="lg:w-1/2 p-8 md:p-12 overflow-y-auto">
+              <div className="lg:w-1/2 p-8 md:p-12 overflow-y-auto flex flex-col justify-center">
                 <span className="text-brand-blue font-bold text-xs uppercase tracking-widest mb-4 block">
                   {selectedProduct.category}
                 </span>
@@ -329,47 +298,18 @@ export default function ProductsPage() {
                   {selectedProduct.description}
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                      <Info className="w-4 h-4 text-brand-blue" /> Technical Specs
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedProduct.specs.map((spec, i) => (
-                        <li key={i} className="text-slate-500 text-sm flex items-center gap-2">
-                          <div className="w-1 h-1 bg-brand-blue rounded-full" /> {spec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                      <Info className="w-4 h-4 text-brand-blue" /> Key Features
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedProduct.features.map((feature, i) => (
-                        <li key={i} className="text-slate-500 text-sm flex items-center gap-2">
-                          <div className="w-1 h-1 bg-brand-blue rounded-full" /> {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-brand-blue text-white px-8 py-4 rounded-full font-bold hover:bg-brand-dark transition-all flex-1">
-                    Request Quote
-                  </button>
-                  <button className="bg-slate-100 text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition-all flex-1">
-                    Download Datasheet
-                  </button>
+                <div className="flex flex-col sm:flex-row gap-4 mt-auto">
+                  <Link href="/contact" className="flex-1">
+                    <button className="w-full bg-brand-blue text-white px-8 py-4 rounded-full font-bold hover:bg-brand-dark transition-all">
+                      Request Quote
+                    </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-
       <Footer />
     </main>
   );

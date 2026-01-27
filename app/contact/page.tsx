@@ -66,7 +66,7 @@ export default function ContactPage() {
                 {[
                   { icon: Phone, title: "Phone Support", content: "+971 4 285 2806 / +971 50 223 9301" },
                   { icon: Mail, title: "Email Us", content: "sales@errekadoors.com" },
-                  { icon: MapPin, title: "Address", content: <>ERREKA TECHNICAL SERVICES LLC, Alia Building, Shop No 3,<br />Al Qasis Industrial Area 4, Dubai.</> },
+                  { icon: MapPin, title: "Address", content: <>ERREKA TECHNICAL SERVICES LLC, Alia Building, Shop No 3,<br />Al Qusais Industrial Area 4, Dubai.</> },
                   { icon: Clock, title: "Business Hours", content: "Mon - Sat: 8:00 AM - 5:00 PM" },
                 ].map((item, i) => (
                   <motion.div

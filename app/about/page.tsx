@@ -72,7 +72,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-brand-blue p-5 md:p-8 rounded-2xl md:rounded-3xl text-white block shadow-xl">
-                <div className="text-2xl md:text-4xl font-bold mb-0.5 md:mb-1">1970</div>
+                <div className="text-2xl md:text-4xl font-bold mb-0.5 md:mb-1">2020</div>
                 <div className="text-xs md:text-sm font-medium opacity-80 uppercase tracking-widest">Founded</div>
               </div>
             </motion.div>
