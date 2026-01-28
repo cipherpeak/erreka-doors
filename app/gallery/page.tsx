@@ -1,9 +1,10 @@
 'use client';
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera } from "lucide-react";
+import { Camera, Video } from "lucide-react";
 
 const galleryItems = [
   {
@@ -88,7 +89,26 @@ const galleryItems = [
   }
 ];
 
+const videoItems = [
+  {
+    id: 1,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592226/WhatsApp_Video_2026-01-27_at_17.58.31_pobb8a.mp4',
+    title: 'Installation Video 1'
+  },
+  {
+    id: 2,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592225/WhatsApp_Video_2026-01-27_at_17.47.38_pe1qgt.mp4',
+    title: 'Installation Video 2'
+  },
+  {
+    id: 3,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592225/1_fcodz7.mp4',
+    title: 'Installation Video 3'
+  }
+];
+
 export default function GalleryPage() {
+  const [view, setView] = useState<'photos' | 'videos'>('photos');
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -114,59 +134,107 @@ export default function GalleryPage() {
 
       <section className="py-12">
         <div className="container mx-auto px-6">
+          {/* Gallery Toggle */}
+          <div className="flex justify-center mb-16">
+            <div className="bg-slate-100 p-1.5 rounded-full inline-flex items-center gap-2">
+              <button
+                onClick={() => setView('photos')}
+                className={`flex items-center gap-2 px-8 py-3 rounded-full font-bold transition-all ${view === 'photos'
+                  ? 'bg-brand-blue text-white shadow-lg'
+                  : 'text-slate-500 hover:text-slate-900'
+                  }`}
+              >
+                <Camera className="w-5 h-5" />
+                Photo Gallery
+              </button>
+              <button
+                onClick={() => setView('videos')}
+                className={`flex items-center gap-2 px-8 py-3 rounded-full font-bold transition-all ${view === 'videos'
+                  ? 'bg-brand-blue text-white shadow-lg'
+                  : 'text-slate-500 hover:text-slate-900'
+                  }`}
+              >
+                <Video className="w-5 h-5" />
+                Video Gallery
+              </button>
+            </div>
+          </div>
+
           <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence mode='popLayout'>
-              {galleryItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
-                  whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
-                  className="group relative aspect-square overflow-hidden rounded-3xl bg-slate-100"
-                >
-                  <motion.img
-                    src={item.url}
-                    alt={item.title}
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.8 }}
-                    className="w-full h-full object-cover"
-                  />
+              {view === 'photos' ? (
+                galleryItems.map((item, index) => (
                   <motion.div
-                    className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 30 }}
+                    transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+                    whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+                    className="group relative aspect-square overflow-hidden rounded-3xl bg-slate-100"
                   >
-                    <div className="flex items-center justify-between">
-                      <motion.div
-                        initial={{ y: 10, opacity: 0 }}
-                        whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <span className="text-brand-blue font-bold text-[10px] uppercase tracking-widest mb-2 block">
-                          {item.category}
-                        </span>
-                        <h3 className="text-white font-bold text-xl">{item.title}</h3>
-                      </motion.div>
+                    <motion.img
+                      src={item.url}
+                      alt={item.title}
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 0.8 }}
+                      className="w-full h-full object-cover"
+                    />
+                    <motion.div
+                      className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <motion.div
+                          initial={{ y: 10, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <span className="text-brand-blue font-bold text-[10px] uppercase tracking-widest mb-2 block">
+                            {item.category}
+                          </span>
+                          <h3 className="text-white font-bold text-xl">{item.title}</h3>
+                        </motion.div>
 
+                      </div>
+                    </motion.div>
+                    <motion.div
+                      className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full"
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: index * 0.08 + 0.1 }}
+                    >
+                      <Camera className="w-4 h-4 text-brand-blue" />
+                    </motion.div>
+                  </motion.div>
+                ))
+              ) : (
+                videoItems.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 30 }}
+                    transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+                    className="group relative aspect-video md:aspect-[4/3] overflow-hidden rounded-3xl bg-slate-100 shadow-xl"
+                  >
+                    <div className="absolute inset-0">
+                      <video
+                        src={item.url}
+                        controls
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </motion.div>
-                  <motion.div
-                    className="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-full"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.08 + 0.1 }}
-                  >
-                    <Camera className="w-4 h-4 text-brand-blue" />
-                  </motion.div>
-                </motion.div>
-              ))}
+                ))
+              )}
             </AnimatePresence>
           </motion.div>
         </div>

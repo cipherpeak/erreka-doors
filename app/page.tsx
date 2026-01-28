@@ -220,20 +220,24 @@ export default function Home() {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
+              <motion.a
+                href="/images/ERREKA Brochure.pdf"
+                target="_blank"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all"
+                className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all text-center"
               >
-                Get a Quote
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all"
-              >
-                Contact Sales
-              </motion.button>
+                Download Brochure
+              </motion.a>
+              <Link href="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg transition-all"
+                >
+                  Contact Us
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>

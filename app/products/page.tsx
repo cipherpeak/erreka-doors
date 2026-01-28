@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Maximize2, Info, ArrowRight, Filter } from "lucide-react";
 
-const categories = ['All', 'Sliding Doors', 'Revolving Doors', 'Gate Automation', 'Gate Barriers', 'Industrial'];
+const categories = ['All', 'Sliding Doors', 'Revolving Doors', 'Folding Doors', 'Gate Automation', 'Gate Barriers', 'Industrial'];
 
 const products = [
   // Sliding Doors
@@ -77,6 +77,36 @@ const products = [
     description: 'A revolving door made primarily of glass panels, offering a modern look while allowing visibility, natural light, and smooth traffic flow'
   },
 
+  // Folding Doors
+  {
+    id: 17,
+    name: 'Aluminum Folding Door',
+    category: 'Folding Doors',
+    image: '/images/products/Aluminium Folding Door.jpeg',
+    description: 'A versatile folding door system made of durable aluminum, designed to maximize space and provide a seamless transition between indoor and outdoor areas.'
+  },
+  {
+    id: 18,
+    name: 'Frameless Glass Folding Door',
+    category: 'Folding Doors',
+    image: '/images/products/frameless Glass Folding Door.webp',
+    description: 'An elegant, all-glass folding door that offers unobstructed views and modern aesthetics, perfect for luxury residential and commercial applications.'
+  },
+  {
+    id: 19,
+    name: 'Horizontal Sliding Wall',
+    category: 'Folding Doors',
+    image: '/images/products/Horizontal Sliding Wall.jpeg',
+    description: 'A flexible and stylish glass partition system that slides horizontally to open up spaces or divide rooms, ideal for shopping malls, airports, and offices.'
+  },
+  {
+    id: 20,
+    name: 'Acoustic Partition Wall',
+    category: 'Folding Doors',
+    image: '/images/products/Acoustic Partition Wall.jpeg',
+    description: 'A movable wall system designed to provide sound insulation and privacy, perfect for conference rooms, banquet halls, and educational facilities where space management is key.'
+  },
+
   // Gate Automation
   {
     id: 10,
@@ -130,7 +160,9 @@ const products = [
     category: 'Industrial',
     image: '/images/products/Garage Doors.jpeg',
     description: 'Doors designed to secure and provide easy access to garages, available in various styles such as sectional, roller, or tilt.'
-  }
+  },
+
+
 ];
 
 export default function ProductsPage() {
