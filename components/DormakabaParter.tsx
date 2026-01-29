@@ -72,7 +72,7 @@ export default function DormakabaParter({ isShort = false }: DormakabaPartnerPro
             >
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-80">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600"
+                  src="https://res.cloudinary.com/dnti1scn8/image/upload/v1769688282/36a299f2-31a8-4555-a744-65a8bb9b3233_skkzsk.jpg"
                   alt="Modern Building Entrance"
                   className="w-full h-full object-cover"
                 />
@@ -163,7 +163,7 @@ export default function DormakabaParter({ isShort = false }: DormakabaPartnerPro
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                src="https://res.cloudinary.com/dnti1scn8/image/upload/v1769688282/36a299f2-31a8-4555-a744-65a8bb9b3233_skkzsk.jpg"
                 alt="Modern Building Entrance"
                 className="w-full h-auto object-cover aspect-[4/5]"
               />

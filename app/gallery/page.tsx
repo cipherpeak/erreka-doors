@@ -12,7 +12,7 @@ const galleryItems = [
     type: 'image',
     title: 'Automatic Sliding Door',
     category: 'Commercial',
-    url: '/images/gallery/Automatic Sliding Door .JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/WhatsApp_Image_2026-01-16_at_18.18.42_qzz6gz.jpg',
     description: 'Installation of high-quality automatic sliding doors.'
   },
   {
@@ -20,7 +20,7 @@ const galleryItems = [
     type: 'image',
     title: 'Automatic Swing Door',
     category: 'Commercial',
-    url: '/images/gallery/Automatic Swing Door.JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/Sliding_Door_s8nrwq.png',
     description: 'Reliable automatic swing door system.'
   },
   {
@@ -28,7 +28,7 @@ const galleryItems = [
     type: 'image',
     title: 'Revolving Door',
     category: 'Commercial',
-    url: '/images/gallery/Revolving Door.JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/WhatsApp_Image_2026-01-16_at_18.18.59_jubllx.jpg',
     description: 'Elegant revolving door entrance.'
   },
   {
@@ -36,7 +36,7 @@ const galleryItems = [
     type: 'image',
     title: 'Sliding Door Installation',
     category: 'Commercial',
-    url: '/images/gallery/Sliding Door.PNG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/ed183dcc-1da0-480f-bf7e-af58beb161b2.JPG_ty5nmk.jpg',
     description: 'Modern sliding door installation suited for any entrance.'
   },
   {
@@ -44,7 +44,7 @@ const galleryItems = [
     type: 'image',
     title: 'Commercial Entrance',
     category: 'Projects',
-    url: '/images/gallery/0cd7f20a-3878-47e9-bcd6-7f233376e740.JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/fe8d36dd-8d64-4d93-97a2-e8b4d963ed53.JPG_lpregy.jpg',
     description: 'Heavy-duty entrance solution.'
   },
   {
@@ -52,23 +52,23 @@ const galleryItems = [
     type: 'image',
     title: 'Office Installation',
     category: 'Projects',
-    url: '/images/gallery/7e8ab069-5db7-4bf3-9c88-f67a4cacf9b9.JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690007/7e8ab069-5db7-4bf3-9c88-f67a4cacf9b9.JPG_jzahyj.jpg',
     description: 'Seamless integration with office architecture.'
   },
-  {
-    id: 7,
-    type: 'image',
-    title: 'Modern Entrance',
-    category: 'Projects',
-    url: '/images/gallery/ed183dcc-1da0-480f-bf7e-af58beb161b2.JPG',
-    description: 'Stylish and functional entrance design.'
-  },
+  // {
+  //   id: 7,
+  //   type: 'image',
+  //   title: 'Modern Entrance',
+  //   category: 'Projects',
+  //   url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690007/Automatic_Sliding_Door.JPG_zdqmpt.jpg',
+  //   description: 'Stylish and functional entrance design.'
+  // },
   {
     id: 8,
     type: 'image',
     title: 'Project Showcase',
     category: 'Projects',
-    url: '/images/gallery/fe8d36dd-8d64-4d93-97a2-e8b4d963ed53.JPG',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690006/0cd7f20a-3878-47e9-bcd6-7f233376e740.JPG_qpsmhz.jpg',
     description: 'Recent installation showcasing our capabilities.'
   },
   {
@@ -76,7 +76,7 @@ const galleryItems = [
     type: 'image',
     title: 'Custom Installation',
     category: 'Residential',
-    url: '/images/gallery/WhatsApp Image 2026-01-16 at 18.18.42.jpeg',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690204/Revolving_Door.JPG_g2qmn7.jpg',
     description: 'Customized solution for specific client needs.'
   },
   {
@@ -84,7 +84,7 @@ const galleryItems = [
     type: 'image',
     title: 'Site Project',
     category: 'Commercial',
-    url: '/images/gallery/WhatsApp Image 2026-01-16 at 18.18.59.jpeg',
+    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690007/Automatic_Swing_Door.JPG_kkrcbh.jpg',
     description: 'On-site installation view.'
   }
 ];
@@ -92,17 +92,17 @@ const galleryItems = [
 const videoItems = [
   {
     id: 1,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592226/WhatsApp_Video_2026-01-27_at_17.58.31_pobb8a.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689712/Sequence_01_6_awetyw.mp4',
     title: 'Installation Video 1'
   },
   {
     id: 2,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592225/WhatsApp_Video_2026-01-27_at_17.47.38_pe1qgt.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689718/seq_rb15ky.mp4',
     title: 'Installation Video 2'
   },
   {
     id: 3,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769592225/1_fcodz7.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689731/seq_2_x4i5sm.mp4',
     title: 'Installation Video 3'
   }
 ];

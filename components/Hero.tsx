@@ -2,6 +2,7 @@
 
 import { ChevronRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Hero() {
 
@@ -60,13 +61,22 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 md:gap-4"
           >
-            <button className="bg-brand-blue text-white px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-brand-dark transition-all flex items-center justify-center gap-2 group shadow-xl shadow-brand-blue/20 hover:scale-105">
-              Request a Consultation
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="bg-white/50 backdrop-blur-md border border-slate-200 text-slate-900 px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/80 transition-all flex items-center justify-center gap-2 hover:scale-105">
-              Get a Maintenance Quote
-            </button>
+            <Link href="/contact" className="contents">
+              <button className="bg-brand-blue text-white px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-brand-dark transition-all flex items-center justify-center gap-2 group shadow-xl shadow-brand-blue/20 hover:scale-105">
+                Request a Consultation
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>
+            <a
+              href="/images/ERREKA Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contents"
+            >
+              <button className="bg-white/50 backdrop-blur-md border border-slate-200 text-slate-900 px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/80 transition-all flex items-center justify-center gap-2 hover:scale-105">
+                Download Company Profile
+              </button>
+            </a>
           </motion.div>
         </div>
       </div>

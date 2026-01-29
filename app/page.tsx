@@ -168,12 +168,15 @@ export default function Home() {
                 <div className="absolute bottom-0 left-0 p-8 w-full">
                   <h4 className="text-2xl font-bold mb-2">{service.title}</h4>
                   <p className="text-slate-300 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">{service.desc}</p>
-                  <motion.button
-                    whileHover={{ x: 5 }}
-                    className="text-brand-blue font-bold flex items-center gap-2"
-                  >
-                    Learn More <ChevronRight className="w-4 h-4" />
-                  </motion.button>
+                  <Link href="/services" className="contents">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-brand-blue text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-dark transition-all shadow-lg shadow-brand-blue/20 flex items-center gap-2 w-fit mt-2"
+                    >
+                      Learn More <ChevronRight className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -223,11 +226,12 @@ export default function Home() {
               <motion.a
                 href="/images/ERREKA Brochure.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all text-center"
               >
-                Download Brochure
+                Download Company Profile
               </motion.a>
               <Link href="/contact">
                 <motion.button

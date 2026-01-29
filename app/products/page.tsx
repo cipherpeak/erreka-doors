@@ -313,11 +313,11 @@ export default function ProductsPage() {
                 <X className="w-5 h-5 text-slate-600" />
               </button>
 
-              <div className="lg:w-1/2 h-64 lg:h-auto relative">
+              <div className="lg:w-1/2 aspect-square md:aspect-video lg:aspect-auto bg-slate-50 relative flex items-center justify-center overflow-hidden">
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
 

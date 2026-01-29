@@ -165,16 +165,30 @@ export default function ServicesPage() {
               >
                 Contact our team today for a free consultation and quote for your project.
               </motion.p>
-              <motion.a
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-white text-brand-blue px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                Get a Quote <ArrowRight className="w-5 h-5" />
-              </motion.a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-white text-brand-blue px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-all shadow-xl hover:shadow-2xl w-full sm:w-auto justify-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  Get a Quote <ArrowRight className="w-5 h-5" />
+                </motion.a>
+                <motion.a
+                  href="/images/ERREKA Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all shadow-xl w-full sm:w-auto justify-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  Download Company Profile
+                </motion.a>
+              </div>
             </div>
 
             {/* Decorative elements */}

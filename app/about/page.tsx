@@ -66,7 +66,7 @@ export default function AboutPage() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                  src="https://res.cloudinary.com/dnti1scn8/image/upload/v1769688658/about_ocqc4g.jpg"
                   alt="Our Office"
                   className="w-full h-full object-cover"
                 />

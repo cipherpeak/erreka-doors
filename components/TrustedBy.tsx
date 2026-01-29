@@ -42,7 +42,7 @@ export default function TrustedBy() {
                             key={i}
                             className="relative"
                         >
-                            <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-slate-200 to-slate-300 hover:from-brand-blue hover:to-blue-600 transition-all duration-300 cursor-default hover:scale-105 transform">
+                            <h4 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-slate-500 to-slate-700 hover:from-brand-blue hover:to-blue-600 transition-all duration-300 cursor-default hover:scale-105 transform">
                                 {client}
                             </h4>
                         </div>
