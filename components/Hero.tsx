@@ -74,7 +74,7 @@ export default function Hero() {
               className="contents"
             >
               <button className="bg-white/50 backdrop-blur-md border border-slate-200 text-slate-900 px-6 py-4 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/80 transition-all flex items-center justify-center gap-2 hover:scale-105">
-                Download Company Profile
+                Download Business Profile
               </button>
             </a>
           </motion.div>

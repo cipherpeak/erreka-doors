@@ -231,7 +231,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-brand-blue px-10 py-4 rounded-full font-bold text-lg transition-all text-center"
               >
-                Download Company Profile
+                Download Business Profile
               </motion.a>
               <Link href="/contact">
                 <motion.button

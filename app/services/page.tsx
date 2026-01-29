@@ -186,7 +186,7 @@ export default function ServicesPage() {
                   whileHover={{ scale: 1.05, y: -4 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  Download Company Profile
+                  Download Business Profile
                 </motion.a>
               </div>
             </div>
