@@ -92,17 +92,17 @@ const galleryItems = [
 const videoItems = [
   {
     id: 1,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689712/Sequence_01_6_awetyw.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693863/Sequence_01_2_dirmns.mp4',
     title: 'Installation Video 1'
   },
   {
     id: 2,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689718/seq_rb15ky.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693858/Sequence_01_3_yjtlsn.mp4',
     title: 'Installation Video 2'
   },
   {
     id: 3,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769689731/seq_2_x4i5sm.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693857/Sequence_01_1_tfrrim.mp4',
     title: 'Installation Video 3'
   }
 ];
