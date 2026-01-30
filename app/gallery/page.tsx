@@ -92,18 +92,48 @@ const galleryItems = [
 const videoItems = [
   {
     id: 1,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693863/Sequence_01_2_dirmns.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776375/Sequence_01_7_lishre.mp4',
     title: 'Installation Video 1'
   },
   {
     id: 2,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693858/Sequence_01_3_yjtlsn.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776375/Sequence_01_2_mwfrvb.mp4',
     title: 'Installation Video 2'
   },
   {
     id: 3,
-    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769693857/Sequence_01_1_tfrrim.mp4',
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776384/Sequence_01_5_j3b1l8.mp4',
     title: 'Installation Video 3'
+  },
+  {
+    id: 4,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776385/Sequence_01_1_nedtis.mp4',
+    title: 'Installation Video 4'
+  },
+  {
+    id: 5,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776384/Sequence_01_3_ad4hpi.mp4',
+    title: 'Installation Video 5'
+  },
+  {
+    id: 6,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776387/Sequence_01_4_csqirn.mp4',
+    title: 'Installation Video 6'
+  },
+  {
+    id: 7,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776393/Sequence_01_qwupbo.mp4',
+    title: 'Installation Video 7'
+  },
+  {
+    id: 8,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776404/2_smufdk.mp4',
+    title: 'Installation Video 8'
+  },
+  {
+    id: 9,
+    url: 'https://res.cloudinary.com/dnti1scn8/video/upload/v1769776429/Sequence_01_10_cvyac3.mp4',
+    title: 'Installation Video 9'
   }
 ];
 
