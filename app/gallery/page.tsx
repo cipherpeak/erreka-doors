@@ -7,14 +7,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Camera, Video } from "lucide-react";
 
 const galleryItems = [
-  {
-    id: 1,
-    type: 'image',
-    title: 'Automatic Sliding Door',
-    category: 'Commercial',
-    url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/WhatsApp_Image_2026-01-16_at_18.18.42_qzz6gz.jpg',
-    description: 'Installation of high-quality automatic sliding doors.'
-  },
+  // {
+  //   id: 1,
+  //   type: 'image',
+  //   title: 'Automatic Sliding Door',
+  //   category: 'Commercial',
+  //   url: 'https://res.cloudinary.com/dnti1scn8/image/upload/v1769690008/WhatsApp_Image_2026-01-16_at_18.18.42_qzz6gz.jpg',
+  //   description: 'Installation of high-quality automatic sliding doors.'
+  // },
   {
     id: 2,
     type: 'image',
